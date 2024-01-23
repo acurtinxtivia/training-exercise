@@ -2,22 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary: #44bef1;
+  --primary-dark: #323946;
+}
 
 @layer base {
   .text-primary {
-    color: #44bef1;
+    color: var(--primary);
   }
 
   .bg-primary {
-    background-color: #44bef1;
+    background-color: var(--primary);
   }
 
   .text-primary-dark {
-    color: #323946;
+    color: var(--primary-dark);
   }
 
   .bg-primary-dark {
-    background-color: #323946;
+    background-color: var(--primary-dark);
+  }
+
+  .border-primary {
+    border-color: var(--primary);
   }
 }
 
+@layer components {
+  .btn {
+    @apply px-7 py-2 rounded-md transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-white  hover:text-primary;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-black border-2 border-gray-400 hover:bg-primary hover:text-white hover:border-primary;
+  }
+}
