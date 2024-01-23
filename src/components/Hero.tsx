@@ -1,13 +1,48 @@
-import { TypeHeroImageFields } from "../../types/contentful";
+import cn from 'classnames'
 
-const Hero = ({ data }: {data: { fields: TypeHeroImageFields }}) => {
+import { TypeHeroImageFields } from "../../types/contentful";
+import Link from "./Link";
+import Heading from "./Heading";
+
+const alignmentClasses = {
+    'Right': 'items-end',
+    'Left': 'items-start',
+    'Center': 'items-center',
+}
+
+const textAlignClasses = {
+    'Right': 'text-right',
+    'Left': 'text-left',
+    'Center': 'text-center'
+}
+
+const Hero = ({ data }: { data: { fields: TypeHeroImageFields }}) => {
+    const alignmentClassName = data.fields?.sectionAlignment ? alignmentClasses[data.fields?.sectionAlignment] : ''
+    const textAlignClassName = data.fields?.textAlignment ? textAlignClasses[data.fields.textAlignment] : ''
+
     return (
-        <section className={`w-full py-24 bg-[url('https:${data.fields.image.fields.image.fields.file.url}')] flex justify-center`}>
-            <div className={`max-w-[${data.fields.contentMaxWidth}px]`}>
-                <h2 className={`text-5xl font-bold text-[${data.fields.textColor?.value}]`}>{data.fields.headline}</h2>
+        <section className={`w-full relative pt-32 pb-40 bg-[url('https:${data.fields.image.fields.image.fields.file.url}')] bg-cover bg-center flex justify-center`}>
+            {data.fields.darkenImage && (
+                <div className='absolute top-0 left-0 w-full h-full bg-black/30 z-0' />
+            )}
+            <div className={cn(`w-full max-w-[${data.fields.contentMaxWidth}px] flex flex-col gap-6 z-10`, alignmentClassName, textAlignClassName)}>
+                <Heading 
+                    size="h1"
+                    color={data.fields.textColor?.value}
+                    className="font-bold max-w-[500px]"
+                >
+                    {data.fields.headline}
+                </Heading>
+                {data.fields.actions && (<div className={`flex ${data.fields.actionAlignment === 'Vertical' ? 'flex-col': ''} gap-4`}> 
+                    {data.fields.actions?.map((action) => (
+                        <Link fields={action.fields} key={action.sys.id} />
+                    ))}
+                </div>)}
             </div>
         </section>
     )
 }
 
 export default Hero
+
+// bg-[url('https://images.ctfassets.net/fxzbhh204zob/7IqrEQlzqgaX6oUqTTqKVI/63b1cbbee1b3aba957c994d74f242b66/home-slide-1.jpg')]
