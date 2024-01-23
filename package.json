@@ -8,9 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "cf-export": "contentful space export --config contentful/export-config.json --management-token $CONTENTFUL_MANAGEMENT_TOKEN --space-id $CONTENTFUL_SPACE_ID",
-    "cf-generate-types": "cf-content-types-generator contentful/export.json --out types/contentful"
+    "cf-generate-types": "cf-content-types-generator -s $CONTENTFUL_SPACE_ID -t $CONTENTFUL_MANAGEMENT_TOKEN --out types/contentful"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "contentful": "^10.6.16",
     "next": "14.0.4",
     "react": "^18",
