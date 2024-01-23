@@ -5,15 +5,6 @@ const space = process.env.CONTENTFUL_SPACE_ID;
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
 const previewToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
 
-type LandingPageSkeleton = {
-    contentTypeId: string,
-    fields: {
-        name: EntryFieldTypes.Text;
-        pageTitle: EntryFieldTypes.Text;
-        slug: EntryFieldTypes.Text;
-    }
-}
-
 let client: ContentfulClientApi<undefined> | undefined;
 
 if (accessToken && space) {
@@ -26,7 +17,7 @@ if (accessToken && space) {
 
 async function fetchEntries(contentType: string, slug: string) {
     if (accessToken && client) {
-        const entries = await client.getEntries<LandingPageSkeleton>({
+        const entries = await client.getEntries({
             content_type: contentType,
             "fields.slug": slug,
             include: 5
