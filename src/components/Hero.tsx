@@ -25,7 +25,7 @@ const Hero = ({ data }: { data: { fields: TypeHeroImageFields }}) => {
             {data.fields.darkenImage && (
                 <div className='absolute top-0 left-0 w-full h-full bg-black/30 z-0' />
             )}
-            <div className={cn(`w-full max-w-[${data.fields.contentMaxWidth}px] flex flex-col gap-6 z-10`, alignmentClassName, textAlignClassName)}>
+            <div className={cn(`w-full flex flex-col gap-6 z-10`, alignmentClassName, textAlignClassName)} style={{ maxWidth: data.fields.contentMaxWidth }}>
                 <Heading 
                     size="h1"
                     color={data.fields.textColor?.value}
@@ -44,5 +44,3 @@ const Hero = ({ data }: { data: { fields: TypeHeroImageFields }}) => {
 }
 
 export default Hero
-
-// bg-[url('https://images.ctfassets.net/fxzbhh204zob/7IqrEQlzqgaX6oUqTTqKVI/63b1cbbee1b3aba957c994d74f242b66/home-slide-1.jpg')]

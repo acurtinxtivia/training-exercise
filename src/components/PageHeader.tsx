@@ -1,5 +1,3 @@
-'use client'
-import Image from "next/image"
 import Link from "next/link"
 
 import { TypeHeaderFields } from "../../types/contentful"
@@ -12,12 +10,12 @@ const PageHeader = ({data}: { data: { fields: TypeHeaderFields } }) => {
     return (
         <header className="w-full ">
             <div className="w-full flex justify-center">
-                <div className={`w-full max-w-[${data.fields.maxWidth}px] flex justify-between py-6`}>
+                <div className={"w-full flex justify-between py-6"} style={{ maxWidth: data.fields.maxWidth}}>
                     <ImageWithFocalPoint fields={logo.fields} />
                 </div>
             </div>
             <nav className="w-full bg-primary-dark flex justify-center py-4 text-white">
-                <ul className={`w-full max-w-[${data.fields.maxWidth}px] flex gap-8 font-bold`}>
+                <ul className={"w-full flex gap-8 font-bold"} style={{ maxWidth: data.fields.maxWidth }}>
                     {navigationItems.map(item => (
                         <ul key={item.sys.id}>
                             <Link href={`/${item.fields.slug}`}>
