@@ -21,7 +21,10 @@ const Hero = ({ data }: { data: { fields: TypeHeroImageFields }}) => {
     const textAlignClassName = data.fields?.textAlignment ? textAlignClasses[data.fields.textAlignment] : ''
 
     return (
-        <section className={`w-full relative pt-32 pb-40 bg-[url('https:${data.fields.image.fields.image.fields.file.url}')] bg-cover bg-center flex justify-center`}>
+        <section 
+            className={`w-full relative pt-32 pb-40 bg-cover bg-center flex justify-center`}
+            style={{ backgroundImage: `url('http:${data.fields.image.fields.image.fields.file.url}')` }}
+        >
             {data.fields.darkenImage && (
                 <div className='absolute top-0 left-0 w-full h-full bg-black/30 z-0' />
             )}
