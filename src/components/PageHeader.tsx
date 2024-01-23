@@ -1,7 +1,9 @@
+'use client'
 import Image from "next/image"
 import Link from "next/link"
 
 import { TypeHeaderFields } from "../../types/contentful"
+import ImageWithFocalPoint from "./ImageWithFocalPoint"
 
 const PageHeader = ({data}: { data: { fields: TypeHeaderFields } }) => {
     const logo = data.fields.logo
@@ -11,12 +13,7 @@ const PageHeader = ({data}: { data: { fields: TypeHeaderFields } }) => {
         <header className="w-full ">
             <div className="w-full flex justify-center">
                 <div className={`w-full max-w-[${data.fields.maxWidth}px] flex justify-between py-6`}>
-                    <Image 
-                        src={`https:${logo.fields.image.fields.file.url}`} 
-                        width={158}
-                        height={40} 
-                        alt={logo.fields.altText}
-                    />
+                    <ImageWithFocalPoint fields={logo.fields} />
                 </div>
             </div>
             <nav className="w-full bg-primary-dark flex justify-center py-4 text-white">
