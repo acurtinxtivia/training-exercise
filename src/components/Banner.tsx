@@ -12,9 +12,9 @@ const sectionAlignmentClass = {
 }
 
 const textAlignmentClass = {
-    Left: 'items-start md:items-center md:justify-start',
-    Right: 'items-end md:items-center md:justify-end',
-    Center: 'items-center'
+    Left: 'text-left items-start md:items-center md:justify-start',
+    Right: 'text-right items-end md:items-center md:justify-end',
+    Center: 'text-center items-center'
 }
 
 const Banner = ({ fields }: { fields: TypeBannerFields }) => {
