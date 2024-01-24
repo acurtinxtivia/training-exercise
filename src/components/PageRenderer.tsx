@@ -5,11 +5,13 @@ import Banner from "./Banner"
 import SetOfCards from "./SetOfCards"
 import SetOfTestimonials from "./SetOfTestimonials"
 import ImageAndText from "./ImageAndText"
+import BlogPreview from "./BlogPreview"
+import BlogPost from './BlogPost'
 import Footer from "./Footer"
 
 const PageRenderer = ({ data }: { data: TypePageLanding }) => {
     return (
-        <main className='w-full flex flex-col items-center'>
+        <main className='w-full flex flex-col items-center min-h-screen'>
             {data.fields.sections.map((section: any) => {
                 switch(section.sys.contentType.sys.id) {
                     case 'header':
@@ -24,6 +26,10 @@ const PageRenderer = ({ data }: { data: TypePageLanding }) => {
                         return <SetOfTestimonials fields={section.fields} key={section.sys.id} />
                     case 'imageAndText':
                         return <ImageAndText fields={section.fields} key={section.sys.id} />
+                    case 'blogPreview':
+                        return <BlogPreview fields={section.fields} key={section.sys.id} />
+                    case 'blogPost':
+                        return <BlogPost fields={section.fields} key={section.sys.id} />
                     case 'footer':
                         return <Footer fields={section.fields} key={section.sys.id} />
                     default:
