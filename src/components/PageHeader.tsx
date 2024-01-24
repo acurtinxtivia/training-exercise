@@ -8,14 +8,14 @@ import MobileNav from './MobileNav'
 import BarsIcon from './icons/BarsIcon'
 import ArrowLeftIcon from './icons/ArrowLeftIcon'
 
-const PageHeader = ({data}: { data: { fields: TypeHeaderFields } }) => {
+const PageHeader = ({ fields }: { fields: TypeHeaderFields }) => {
     const [navOpen, setNavOpen] = useState(false)
-    const logo = data.fields.logo
+    const logo = fields.logo
 
     return (
         <header className="w-full">
             <div className="w-full flex justify-center">
-                <div className="w-full flex justify-between p-6" style={{ maxWidth: data.fields.maxWidth}}>
+                <div className="w-full flex justify-between p-6" style={{ maxWidth: fields.maxWidth}}>
                     <div className="flex gap-4">
                         <button className="md:hidden" onClick={() => setNavOpen(!navOpen)}>
                             {navOpen 
@@ -30,13 +30,13 @@ const PageHeader = ({data}: { data: { fields: TypeHeaderFields } }) => {
             <div className='relative'>
             {navOpen && (
                 <MobileNav
-                    fields={data.fields.navigationMenu?.fields}
-                    maxWidth={data.fields.maxWidth}
+                    fields={fields.navigationMenu?.fields}
+                    maxWidth={fields.maxWidth}
                 />
             )}
             <NavBar 
-                fields={data.fields.navigationMenu?.fields}
-                maxWidth={data.fields.maxWidth}
+                fields={fields.navigationMenu?.fields}
+                maxWidth={fields.maxWidth}
                 />
             </div>
         </header>

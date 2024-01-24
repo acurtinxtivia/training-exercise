@@ -2,12 +2,11 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import { TypeFooterFields } from "../../types/contentful"
 
-const Footer = ({ data }: { data: { fields: TypeFooterFields } }) => {
-    console.log(data)
+const Footer = ({ fields }: { fields: TypeFooterFields }) => {
     return (
         <footer className='w-full bg-primary-dark text-white p-6 flex justify-center mt-12'>
-            <div className='w-full flex justify-center' style={{ maxWidth: data.fields.maxWidth }}>
-                {documentToReactComponents(data.fields.content)}
+            <div className='w-full flex justify-center' style={{ maxWidth: fields.maxWidth }}>
+                {documentToReactComponents(fields.content)}
             </div>
         </footer>
     )

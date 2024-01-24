@@ -16,28 +16,28 @@ const textAlignClasses = {
     'Center': 'text-center'
 }
 
-const Hero = ({ data }: { data: { fields: TypeHeroImageFields }}) => {
-    const alignmentClassName = data.fields?.sectionAlignment ? alignmentClasses[data.fields?.sectionAlignment] : ''
-    const textAlignClassName = data.fields?.textAlignment ? textAlignClasses[data.fields.textAlignment] : ''
+const Hero = ({ fields }: { fields: TypeHeroImageFields }) => {
+    const alignmentClassName = fields?.sectionAlignment ? alignmentClasses[fields?.sectionAlignment] : ''
+    const textAlignClassName = fields?.textAlignment ? textAlignClasses[fields.textAlignment] : ''
 
     return (
         <section 
             className={`w-full relative pt-32 pb-40 px-8 bg-cover bg-center flex justify-center`}
-            style={{ backgroundImage: `url('https:${data.fields.image.fields.image.fields.file.url}')` }}
+            style={{ backgroundImage: `url('https:${fields.image.fields.image.fields.file.url}')` }}
         >
-            {data.fields.darkenImage && (
+            {fields.darkenImage && (
                 <div className='absolute top-0 left-0 w-full h-full bg-black/30 z-0' />
             )}
-            <div className={cn(`w-full flex flex-col gap-6 z-10`, alignmentClassName, textAlignClassName)} style={{ maxWidth: data.fields.contentMaxWidth }}>
+            <div className={cn(`w-full flex flex-col gap-6 z-10`, alignmentClassName, textAlignClassName)} style={{ maxWidth: fields.contentMaxWidth }}>
                 <Heading 
                     size="h1"
-                    color={data.fields.textColor?.value}
+                    color={fields.textColor?.value}
                     className="font-bold max-w-[500px]"
                 >
-                    {data.fields.headline}
+                    {fields.headline}
                 </Heading>
-                {data.fields.actions && (<div className={`flex ${data.fields.actionAlignment === 'Vertical' ? 'flex-col': ''} gap-4`}> 
-                    {data.fields.actions?.map((action) => (
+                {fields.actions && (<div className={`flex ${fields.actionAlignment === 'Vertical' ? 'flex-col': ''} gap-4`}> 
+                    {fields.actions?.map((action) => (
                         <Link fields={action.fields} key={action.sys.id} />
                     ))}
                 </div>)}
