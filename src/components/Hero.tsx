@@ -22,7 +22,7 @@ const Hero = ({ data }: { data: { fields: TypeHeroImageFields }}) => {
 
     return (
         <section 
-            className={`w-full relative pt-32 pb-40 bg-cover bg-center flex justify-center`}
+            className={`w-full relative pt-32 pb-40 px-4 bg-cover bg-center flex justify-center`}
             style={{ backgroundImage: `url('http:${data.fields.image.fields.image.fields.file.url}')` }}
         >
             {data.fields.darkenImage && (
