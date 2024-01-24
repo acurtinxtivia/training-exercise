@@ -6,17 +6,17 @@ import Card from './Card'
 
 const cardDisplayClass = {
     'Vertical': 'flex flex-col',
-    'Horizontal': 'flex justify-between'
+    'Horizontal': 'md:flex-row justify-between'
 }
 
 const SetOfCards = ({ data }: {data: { fields: TypeSetOfCardFields }}) => {
     return (
-        <section className="w-full flex justify-center">
-            <div className={`w-full flex flex-col items-center`} style={{ maxWidth: data.fields.maxWidth }}>
+        <section className="w-full flex justify-center pt-16">
+            <div className={`w-full flex flex-col items-center px-14 md:px-0`} style={{ maxWidth: data.fields.maxWidth }}>
                 {data.fields.title && (
-                    <Heading size={data.fields.titleSize} className='font-bold'>{data.fields.title}</Heading>
+                    <Heading size={data.fields.titleSize} className='font-bold pb-4'>{data.fields.title}</Heading>
                 )}
-                <div className={cn(cardDisplayClass[data.fields.cardDisplayStyle], 'w-full')}>
+                <div className={cn(cardDisplayClass[data.fields.cardDisplayStyle], 'w-full p-4 flex flex-col gap-12')}>
                     {data.fields.cards.map((card) => (
                         <Card key={card.sys.id} data={card} />
                     ))}
