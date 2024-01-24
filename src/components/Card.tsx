@@ -13,11 +13,11 @@ const imagePositionClass = {
 
 const Card = ({ data }: { data: { fields: TypeCardFields } }) => {
     return (
-        <div className={cn('flex gap-2', imagePositionClass[data.fields.imagePosition || 'Top'])}>
+        <div className={cn('flex gap-6', imagePositionClass[data.fields.imagePosition || 'Top'])}>
             {data.fields.image && (
-                <ImageWithFocalPoint fields={data.fields.image.fields} />
+                <ImageWithFocalPoint fields={data.fields.image.fields} className='w-full rounded-md'/>
             )}
-            <div className='flex flex-col items-start'>
+            <div className='flex flex-col items-start gap-4'>
                 <Heading size={data.fields.titleSize} className="font-bold">{data.fields.title}</Heading>
                 <p>{data.fields.subText}</p>
             </div>
