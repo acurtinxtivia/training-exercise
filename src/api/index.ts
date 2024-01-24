@@ -33,3 +33,19 @@ export async function fetchLandingEntriesBySlug(slug: string = 'home') {
     console.log('Fetching Published');
     return await fetchEntries("pageLanding", slug);
 }
+
+export async function fetchBlogPosts(limit: number = 10) {
+    if (accessToken && client) {
+        const entries = await client.getEntries({
+            content_type: 'pageLanding',
+            order: 'sys.createdAt',
+            "metadata.tags.sys.id[in]": 'blogPost',
+            include: 5,
+            limit
+        })
+
+        if (entries.items) return entries.items
+        console.log('Error getting blog posts')
+    }
+    console.log('Access token is undefined')
+}
