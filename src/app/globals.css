@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --primary: #44bef1;
+  --primary-light: #44bef1;
+  --primary: #24a3d8;
   --primary-dark: #323946;
 }
 
@@ -26,6 +27,15 @@
 
   .border-primary {
     border-color: var(--primary);
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
