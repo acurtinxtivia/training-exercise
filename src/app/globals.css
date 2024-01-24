@@ -49,6 +49,6 @@
   }
 
   .btn-secondary {
-    @apply bg-white text-black border-2 border-gray-400 hover:bg-primary hover:text-white hover:border-primary;
+    @apply bg-transparent text-black border-2 border-gray-400 hover:bg-primary hover:text-white hover:border-primary;
   }
 }
