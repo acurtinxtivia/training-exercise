@@ -12,7 +12,7 @@ const cardDisplayClass = {
 const SetOfCards = ({ data }: {data: { fields: TypeSetOfCardFields }}) => {
     return (
         <section className="w-full flex justify-center pt-16">
-            <div className={`w-full flex flex-col items-center px-14 md:px-0`} style={{ maxWidth: data.fields.maxWidth }}>
+            <div className={`w-full flex flex-col items-center px-8`} style={{ maxWidth: data.fields.maxWidth }}>
                 {data.fields.title && (
                     <Heading size={data.fields.titleSize} className='font-bold pb-4'>{data.fields.title}</Heading>
                 )}
