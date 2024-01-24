@@ -8,6 +8,7 @@ export type { TypeGallery, TypeGalleryFields } from "./TypeGallery";
 export type { TypeHeader, TypeHeaderFields } from "./TypeHeader";
 export type { TypeHeroImage, TypeHeroImageFields } from "./TypeHeroImage";
 export type { TypeIcon, TypeIconFields } from "./TypeIcon";
+export type { TypeImageAndText, TypeImageAndTextFields } from "./TypeImageAndText";
 export type { TypeImageWithFocalPoint, TypeImageWithFocalPointFields } from "./TypeImageWithFocalPoint";
 export type { TypeLink, TypeLinkFields } from "./TypeLink";
 export type { TypeMarketoForm, TypeMarketoFormFields } from "./TypeMarketoForm";
