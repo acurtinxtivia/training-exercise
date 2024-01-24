@@ -43,7 +43,7 @@ const Banner = ({ fields }: { fields: TypeBannerFields }) => {
         color: fields.textColor?.value || 'inherit'
     }
     return (
-        <section className="w-full flex justify-center">
+        <section className="w-full flex justify-center pt-16">
             <div className={cn("relative w-full bg-pink-200 flex flex-col bg-cover bg-fixed px-8", sectionAlignmentClass[fields.sectionAlignment])} style={sectionStyle}>
                 {fields.darkenImage && (
                     <div className='absolute top-0 left-0 w-full h-full bg-black/30 z-0' />
