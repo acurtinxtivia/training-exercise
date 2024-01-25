@@ -15,6 +15,10 @@ html {
 }
 
 @layer base {
+  body {
+    @apply pt-[57px] lg:pt-0;
+  }
+
   .text-primary {
     color: var(--primary);
   }
@@ -41,6 +45,14 @@ html {
 
   .border-primary {
     border-color: var(--primary);
+  }
+
+  .fill-primary {
+    fill: var(--primary);
+  }
+
+  .stroke-primary {
+    stroke: var(--primary);
   }
 
   .hide-scrollbar::-webkit-scrollbar {

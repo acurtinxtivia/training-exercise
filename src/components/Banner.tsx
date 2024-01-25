@@ -48,11 +48,14 @@ const Banner = ({ fields }: { fields: TypeBannerFields }) => {
                 {fields.darkenImage && (
                     <div className='absolute top-0 left-0 w-full h-full bg-black/30 z-0' />
                 )}
-                <div className={cn("flex flex-col md:flex-row gap-12 z-10", textAlignmentClass[fields.textAlignment || 'Center'])} style={contentStyle}>
-                    <Heading size={fields.headlineSize} className="font-black">{fields.headline}</Heading>
+                <div className={cn("flex flex-col lg:flex-row gap-12 z-10", textAlignmentClass[fields.textAlignment || 'Center'])} style={contentStyle}>
+                    <Heading size={fields.headlineSize} className="font-black whitespace-nowrap">{fields.headline}</Heading>
                     {fields.subText && (
-                        <div className='text-2xl font-light'>
-                            {documentToReactComponents(fields.subText)}
+                        <div className='h-full flex flex-col lg:flex-row items-center gap-5 lg:gap-4'>
+                            <div className='border-t w-12 lg:border-t-0 lg:w-auto lg:border-r h-full'/>
+                            <div className='text-2xl font-light'>
+                                {documentToReactComponents(fields.subText)}
+                            </div>
                         </div>
                     )}
                     {fields.actions && (
