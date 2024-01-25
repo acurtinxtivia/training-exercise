@@ -22,7 +22,7 @@ const Hero = ({ fields }: { fields: TypeHeroImageFields }) => {
 
     return (
         <section 
-            className={`w-full relative pt-32 pb-40 px-8 bg-cover bg-center flex justify-center`}
+            className={`w-full relative pt-40 pb-64 px-8 bg-bottom flex justify-center`}
             style={{ backgroundImage: `url('https:${fields.image.fields.image.fields.file.url}')` }}
         >
             {fields.darkenImage && (
@@ -36,7 +36,7 @@ const Hero = ({ fields }: { fields: TypeHeroImageFields }) => {
                 >
                     {fields.headline}
                 </Heading>
-                {fields.actions && (<div className={`flex ${fields.actionAlignment === 'Vertical' ? 'flex-col': ''} gap-4`}> 
+                {fields.actions && (<div className={`flex ${fields.actionAlignment === 'Vertical' ? 'flex-col': ''} gap-6`}> 
                     {fields.actions?.map((action) => (
                         <Link fields={action.fields} key={action.sys.id} />
                     ))}

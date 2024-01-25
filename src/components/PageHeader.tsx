@@ -14,8 +14,8 @@ const PageHeader = ({ fields }: { fields: TypeHeaderFields }) => {
 
     return (
         <header className="w-full">
-            <div className="w-full flex justify-center">
-                <div className="w-full flex justify-between p-6" style={{ maxWidth: fields.maxWidth}}>
+            <div className="w-full flex justify-center px-4">
+                <div className="w-full flex justify-between py-6" style={{ maxWidth: fields.maxWidth}}>
                     <div className="flex gap-4">
                         <button className="md:hidden" onClick={() => setNavOpen(!navOpen)}>
                             {navOpen 

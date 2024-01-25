@@ -16,18 +16,17 @@ const SetOfTestimonials = ({ fields }: { fields: TypeSetOfTestimonialsFields }) 
     }
 
     return (
-        <section className="w-full flex justify-center pt-16">
+        <section className="w-full flex justify-center pt-[68px]">
             <div className="w-full flex flex-col items-center" style={{ maxWidth: fields.maxWidth }}>
-                <Heading size={fields.titleSize} className='font-bold pb-8'>{fields.title}</Heading>
+                <Heading size={fields.titleSize} className='font-black pb-16'>{fields.title}</Heading>
                 <div className='w-full flex items-center gap-2'>
-                    <button onClick={() => scroll(-250)}><ChevronLeftIcon className='h-16 w-16 text-gray-400' /></button>
+                    <button onClick={() => scroll(-250)}><ChevronLeftIcon className='h-20 w-20 text-gray-400' /></button>
                     <div className="w-full flex flex-no-wrap overflow-x-scroll hide-scrollbar scroll-smooth gap-12" ref={scrollArea}>
                         {fields.testimonials?.map((testimonial) => (
-                            // <div key={testimonial.sys.id}>{testimonial.fields.name}</div>
                             <Testimonial key={testimonial.sys.id} fields={testimonial.fields} />
                             ))}
                     </div>
-                    <button onClick={() => scroll(250)}><ChevronRightIcon className='h-16 w-16 text-gray-400' /></button>
+                    <button onClick={() => scroll(250)}><ChevronRightIcon className='h-20 w-20 text-gray-400' /></button>
                 </div>
             </div>
         </section>

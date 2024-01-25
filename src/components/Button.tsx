@@ -6,7 +6,7 @@ interface ButtonProps {
 
 const Button = ({ theme = 'primary', children }: PropsWithChildren<ButtonProps>) => {
     return (
-        <button className={`btn ${theme === 'primary' ? 'btn-primary' : 'btn-secondary'}`}>
+        <button className={`btn ${theme === 'primary' ? 'btn-primary' : 'btn-secondary'} text-lg`}>
             {children}
         </button>
     )

@@ -11,10 +11,10 @@ const cardDisplayClass = {
 
 const SetOfCards = ({ fields }: { fields: TypeSetOfCardFields }) => {
     return (
-        <section className="w-full flex justify-center pt-16">
-            <div className={`w-full flex flex-col items-center px-8`} style={{ maxWidth: fields.maxWidth }}>
+        <section className="w-full flex justify-center pt-[68px]">
+            <div className={`w-full flex flex-col items-center px-4`} style={{ maxWidth: fields.maxWidth }}>
                 {fields.title && (
-                    <Heading size={fields.titleSize} className='font-bold pb-4'>{fields.title}</Heading>
+                    <Heading size={fields.titleSize} className='font-black pb-16'>{fields.title}</Heading>
                 )}
                 <div className={cn(cardDisplayClass[fields.cardDisplayStyle], 'w-full p-4 flex flex-col gap-12')}>
                     {fields.cards.map((card) => (

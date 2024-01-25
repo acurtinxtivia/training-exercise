@@ -6,6 +6,12 @@
   --primary-light: #44bef1;
   --primary: #24a3d8;
   --primary-dark: #323946;
+  --light-gray: #666666;
+  --extra-light-gray: #999999;
+}
+
+html {
+  font-size: 93.75%;
 }
 
 @layer base {
@@ -13,12 +19,20 @@
     color: var(--primary);
   }
 
-  .bg-primary {
-    background-color: var(--primary);
-  }
-
   .text-primary-dark {
     color: var(--primary-dark);
+  }
+
+  .text-light-gray {
+    color: var(--light-gray);
+  }
+
+  .text-extra-light-gray {
+    color: var(--extra-light-gray);
+  }
+
+  .bg-primary {
+    background-color: var(--primary);
   }
 
   .bg-primary-dark {
@@ -41,7 +55,7 @@
 
 @layer components {
   .btn {
-    @apply px-7 py-2 rounded-md transition-all duration-300;
+    @apply px-8 py-3 rounded-md transition-all duration-300 min-w-[160px];
   }
 
   .btn-primary {
