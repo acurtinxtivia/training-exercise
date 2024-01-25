@@ -3,9 +3,7 @@ import BlogPostPreview from "./BlogPostPreview"
 import Heading from "./Heading"
 
 const BlogPreview = async ({ fields }: { fields: any }) => {
-    console.log(fields)
     const blogPosts = await fetchBlogPosts(fields.numberOfPosts)
-    console.log('blog posts', blogPosts)
 
     return (
         <section className="w-full flex justify-center pt-16">
