@@ -29,6 +29,20 @@ const PageHeader = ({ fields }: { fields: TypeHeaderFields }) => {
         }
     }, [])
 
+    const toggleNavOpen = () => {
+        if (contactOpen) {
+            setContactOpen(false)
+        }
+        setNavOpen(!navOpen)
+    }
+
+    const toggleContactOpen = () => {
+        if (navOpen) {
+            setNavOpen(false)
+        }
+        setContactOpen(!contactOpen)
+    }
+
     const stickyClass = navBarSticky ? 'lg:pb-[60px]' : ''
 
     return (
@@ -36,7 +50,7 @@ const PageHeader = ({ fields }: { fields: TypeHeaderFields }) => {
             <div className="w-full flex justify-center px-4">
                 <div className="w-full flex justify-between py-[6px] lg:pt-7 lg:pb-6 px-4" style={{ maxWidth: fields.maxWidth}}>
                     <div className="flex gap-4">
-                        <button className="lg:hidden" onClick={() => setNavOpen(!navOpen)}>
+                        <button className="lg:hidden" onClick={toggleNavOpen}>
                             {navOpen 
                                 ? (<ArrowLeftIcon className='h-10 w-10'/>) 
                                 : (<BarsIcon className='h-10 w-10'/>)
@@ -51,7 +65,7 @@ const PageHeader = ({ fields }: { fields: TypeHeaderFields }) => {
                             <div className='hidden lg:block'>
                                 <ContactInfo fields={fields.contactInfo.fields} />
                             </div>
-                            <button className='lg:hidden' onClick={() => setContactOpen(!contactOpen)}>
+                            <button className='lg:hidden' onClick={toggleContactOpen}>
                                 <DotsVertical className='h-12 w-12'/>
                             </button>
                         </>
@@ -71,7 +85,7 @@ const PageHeader = ({ fields }: { fields: TypeHeaderFields }) => {
                 sticky={navBarSticky}
             />
             {contactOpen && (
-                <div className='lg:hidden w-full flex justify-center pt-9 pb-7'>
+                <div className='lg:hidden w-full flex justify-center pt-9 pb-[20px]'>
                     <ContactInfo fields={fields.contactInfo.fields}/>
                 </div>
             )}
