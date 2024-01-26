@@ -10,7 +10,7 @@ const SubMenus = ({ submenus, menuOpen, stickyNav = false }: { submenus: any, me
     if (submenus.length > 1) {
         const topOffset = stickyNav ? 'top-[30px]' : 'top-[120px]'
         return (
-            <div className={cn("fixed left-[50%] -translate-x-1/2 w-full max-w-[1200px] pt-10", displayClass, topOffset)}>
+            <div className={cn("fixed left-[50%] -translate-x-1/2 w-full max-w-[1200px] pt-8 mt-2", displayClass, topOffset)}>
                 <div className="bg-white w-full flex justify-between px-8 py-8 border">
                     {submenus.map((submenu) => (
                         <div className="flex flex-col text-light-gray" key={submenu.sys.id}>
@@ -53,17 +53,18 @@ const SubMenus = ({ submenus, menuOpen, stickyNav = false }: { submenus: any, me
 const NavItem = ({ item, stickyNav = false }: { item: any , stickyNav: boolean }) => {
     const [menuOpen, setMenuOpen] = useState(false)
     const pathname = usePathname()
-    const isCurrentPage = pathname.split('/')[1] === item.fields.slug
-    const colorClass = isCurrentPage || menuOpen ? 'text-primary' : ''
+    const currentPageSlug = pathname.split('/')[1] || 'home'
+    const isCurrentPage = currentPageSlug === item.fields.slug
+    const colorClass = isCurrentPage || menuOpen ? 'text-primary' : 'hover:text-primary'
 
     return (
-        <li key={item.sys.id} className="flex items-center gap-1 relative group">
+        <li className="flex items-center gap-[5px] relative group">
             <Link href={`/${item.fields.slug}`} className={colorClass}>
                 {item.fields.label}
             </Link>
             {item.fields.submenus && (
                 <button onClick={() => {}}>
-                    <ChevronDownIcon className="h-4 w-4 text-primary group-hover:rotate-180 transition-all" />
+                    <ChevronDownIcon className="h-4 w-4 text-primary group-hover:rotate-180 transition-all duration-500" />
                 </button>
             )}
             {(item.fields.submenus) && (

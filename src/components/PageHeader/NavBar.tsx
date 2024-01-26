@@ -14,8 +14,8 @@ const NavBar = ({ maxWidth, fields, sticky = false }: NavBarProps) => {
     const stickyClass = sticky ? 'fixed top-0' : ''
 
     return (
-        <nav className={cn("w-full bg-primary-dark hidden lg:flex justify-center py-5 px-4 text-white", stickyClass)}>
-            <ul className="flex w-full gap-8 font-bold" style={{ maxWidth }}>
+        <nav className={cn("w-full bg-primary-dark hidden lg:flex justify-center py-5 px-8 text-white", stickyClass)}>
+            <ul className="flex w-full gap-[40px] font-bold" style={{ maxWidth }}>
                 {navigationItems.map(item => (
                     <NavItem item={item} key={item.sys.id} stickyNav={sticky} />
                 ))}

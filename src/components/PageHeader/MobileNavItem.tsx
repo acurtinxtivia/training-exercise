@@ -9,10 +9,10 @@ import ChevronUpIcon from '../icons/ChevronUpIcon'
 const MobileNavItem = ({ item }: { item: any }) => {
     const [menuOpen, setMenuOpen] = useState(false)
     const pathname = usePathname()
-    const currentPageSlug = pathname.split('/')[1]
+    const currentPageSlug = pathname.split('/')[1] || 'home'
     const isCurrentPage = currentPageSlug === item.fields.slug
     const colorClass = (isCurrentPage || menuOpen) ? 'bg-primary text-white' : 'text-primary'
-    
+
     return (
         <li key={item.sys.id} className={cn('w-full flex flex-col')}>
             <div className={cn('w-full flex justify-between items-center px-[16px] py-3', colorClass)}>

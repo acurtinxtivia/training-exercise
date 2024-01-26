@@ -34,7 +34,7 @@ const PageHeader = ({ fields }: { fields: TypeHeaderFields }) => {
     return (
         <header className={cn("w-full fixed lg:static top-0 z-50 bg-white shadow-sm lg:shadow-none", stickyClass)}>
             <div className="w-full flex justify-center px-4">
-                <div className="w-full flex justify-between py-[6px] lg:pt-7 lg:pb-6" style={{ maxWidth: fields.maxWidth}}>
+                <div className="w-full flex justify-between py-[6px] lg:pt-7 lg:pb-6 px-4" style={{ maxWidth: fields.maxWidth}}>
                     <div className="flex gap-4">
                         <button className="lg:hidden" onClick={() => setNavOpen(!navOpen)}>
                             {navOpen 
