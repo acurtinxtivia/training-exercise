@@ -1,40 +1,47 @@
+import cn from 'classnames'
+
 import ClockIcon from "../icons/ClockIcon"
 import LocationIcon from "../icons/LocationIcon"
 import PhoneIcon from "../icons/PhoneIcon"
 
 const ContactInfo = ({ fields }: { fields: any }) => {
+    const containerClass = "flex flex-col md:flex-row items-center text-center md:text-left gap-[14px]"
+    const iconClass = "h-[32px] w-[32px]"
+    const textClass = "font-bold"
+    const subtextClass = "font-light text-light-gray"
+    
     return (
-        <div className="flex gap-[68px]">
+        <div className="flex gap-[25px] lg:gap-[68px] flex-wrap justify-center px-[30px]">
             {fields.hours && (
-                <div className="flex items-center gap-4">
+                <div className={containerClass}>
                     <div>
-                        <ClockIcon className="h-10 w-10 fill-primary"/>
+                        <ClockIcon className={cn("fill-primary", iconClass)} />
                     </div>
                     <div>
-                        <p className="font-bold">{fields.hours}</p>
-                        <p className="font-light text-light-gray">{fields.hoursSubtext}</p>
+                        <p className={textClass}>{fields.hours}</p>
+                        <p className={subtextClass}>{fields.hoursSubtext}</p>
                     </div>
                 </div>
             )}
             {fields.address && (
-                <div className="flex items-center gap-4">
+                <div className={containerClass}>
                     <div>
-                        <LocationIcon className="h-10 w-10 fill-primary"/>
+                        <LocationIcon className={cn("fill-primary", iconClass)} />
                     </div>
                     <div>
-                        <p className="font-bold">{fields.address}</p>
-                        <p className="font-light text-light-gray">{fields.addressSubtext}</p>
+                        <p className={textClass}>{fields.address}</p>
+                        <p className={subtextClass}>{fields.addressSubtext}</p>
                     </div>
                 </div>
             )}
             {fields.phoneNumber && (
-                <div className="flex items-center gap-4">
+                <div className={containerClass}>
                     <div>
-                        <PhoneIcon className="h-10 w-10 stroke-primary -scale-x-100"/>
+                        <PhoneIcon className={cn("stroke-primary -scale-x-100", iconClass)} />
                     </div>
                     <div>
-                        <p className="font-bold">{fields.phoneNumber}</p>
-                        <p className="font-light text-light-gray">{fields.email}</p>
+                        <p className={textClass}>{fields.phoneNumber}</p>
+                        <p className={subtextClass}>{fields.email}</p>
                     </div>
                 </div>
             )}
