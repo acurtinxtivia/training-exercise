@@ -18,8 +18,14 @@ const config: Config = {
         'primary': '#24a3d8',
         'primary-dark': '#323946',
         'light-gray': '#666666',
-        'extra-light-gray': '#999999'
+        'extra-light-gray': '#999999',
+        'off-white': '#ebebeb',
+        'silver': '#bab8b8'
       },
+      boxShadow: {
+        light: 'rgba(174, 174, 174, 0.05) 0px 0px 6px 3px'
+      }
+      
     },
   },
   plugins: [],
