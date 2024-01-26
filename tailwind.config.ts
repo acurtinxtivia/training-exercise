@@ -20,7 +20,8 @@ const config: Config = {
         'light-gray': '#666666',
         'extra-light-gray': '#999999',
         'off-white': '#ebebeb',
-        'silver': '#bab8b8'
+        'silver': '#bab8b8',
+        'blue-gray': '#888c94'
       },
       boxShadow: {
         light: 'rgba(174, 174, 174, 0.05) 0px 0px 6px 3px'
