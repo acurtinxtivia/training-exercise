@@ -19,42 +19,6 @@ html {
     @apply pt-[57px] lg:pt-0;
   }
 
-  .text-primary {
-    color: var(--primary);
-  }
-
-  .text-primary-dark {
-    color: var(--primary-dark);
-  }
-
-  .text-light-gray {
-    color: var(--light-gray);
-  }
-
-  .text-extra-light-gray {
-    color: var(--extra-light-gray);
-  }
-
-  .bg-primary {
-    background-color: var(--primary);
-  }
-
-  .bg-primary-dark {
-    background-color: var(--primary-dark);
-  }
-
-  .border-primary {
-    border-color: var(--primary);
-  }
-
-  .fill-primary {
-    fill: var(--primary);
-  }
-
-  .stroke-primary {
-    stroke: var(--primary);
-  }
-
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
