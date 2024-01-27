@@ -37,7 +37,7 @@ const Hero = ({ fields }: { fields: TypeHeroImageFields }) => {
                         <Heading 
                             size="h1"
                             color={fields.textColor?.value}
-                            className="font-black text-[36px] leading-[1] md:text-[40px] xl:text-[55px] xl:leading-[65px]"
+                            className="font-black text-[36px] leading-[1] md:text-[40px] md:leading-[55px] xl:text-[55px] xl:leading-[65px]"
                             >
                             {documentToReactComponents(fields.headlineRich)}
                         </Heading>

@@ -11,7 +11,7 @@ const Heading = ({ size, children, color = '', className = '' }: PropsWithChildr
     const style = color ? { color } : {}
     switch (size) {
         case 'h1':
-            return <h1 className={cn('text-[55px] leading-[65px]', className)} style={style}>{children}</h1>
+            return <h1 className={cn({'text-[55px] leading-[65px]': !className}, className)} style={style}>{children}</h1>
         case 'h2':
             return <h2 className={cn('text-5xl', className)} style={style}>{children}</h2>
         case 'h3':
