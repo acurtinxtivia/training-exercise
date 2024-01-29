@@ -17,8 +17,8 @@ const PageRenderer = ({ data }: { data: TypePageLanding }) => {
                 switch(section.sys.contentType.sys.id) {
                     case 'header':
                         return <PageHeader fields={section.fields} key={section.sys.id} />
-                    // case 'heroImage':
-                    //     return <Hero fields={section.fields} key={section.sys.id} />
+                    case 'heroImage':
+                        return <Hero fields={section.fields} key={section.sys.id} />
                     case 'banner':
                         return <Banner fields={section.fields} key={section.sys.id} />
                     case 'setOfCard':
