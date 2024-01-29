@@ -1,9 +1,9 @@
-import { fetchBlogPosts } from "~/api"
+// import { fetchBlogPosts } from "~/api"
 import BlogPostPreview from "./BlogPostPreview"
 import Heading from "./Heading"
 
 const BlogPreview = async ({ fields }: { fields: any }) => {
-    const blogPosts = await fetchBlogPosts(fields.numberOfPosts)
+    // const blogPosts = await fetchBlogPosts(fields.numberOfPosts)
 
     return (
         <section className="w-full flex justify-center pt-16">
@@ -11,7 +11,7 @@ const BlogPreview = async ({ fields }: { fields: any }) => {
                 {fields.title && (
                     <Heading size={fields.titleSize} className="font-bold">{fields.title}</Heading>
                 )}
-                {(!blogPosts || blogPosts.length === 0) ? (
+                {/* {(!blogPosts || blogPosts.length === 0) ? (
                     <div>
                         No blog posts
                     </div>
@@ -21,7 +21,7 @@ const BlogPreview = async ({ fields }: { fields: any }) => {
                             <BlogPostPreview fields={blogPost.fields} key={blogPost.sys.id} />
                         ))}
                     </div>
-                )}
+                )} */}
             </div>
         </section>
     )
