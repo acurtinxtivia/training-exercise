@@ -14,9 +14,15 @@ const SetOfCards = ({ fields }: { fields: TypeSetOfCardFields }) => {
         <section className="w-full flex justify-center pt-[68px]">
             <div className={`w-full flex flex-col items-center px-4`} style={{ maxWidth: fields.maxWidth }}>
                 {fields.title && (
-                    <Heading size={fields.titleSize} className='font-black pb-16'>{fields.title}</Heading>
+                    <Heading 
+                        size={fields.titleSize} 
+                        className='font-black pb-[26px] text-[28px] md:text-[36px] lg:text-[46px]'
+                    >
+                        {fields.title}
+                    </Heading>
                 )}
-                <div className={cn(cardDisplayClass[fields.cardDisplayStyle], 'w-full flex flex-col gap-12')}>
+                <div className='w-[50px] lg:w-[68px] h-[3px] bg-primary mb-[40px] md:mb-[60px]' />
+                <div className={cn(cardDisplayClass[fields.cardDisplayStyle], 'w-full sm:w-[480px] md:w-[750px] lg:w-[970px] xl:w-full flex flex-col gap-[30px] sm:px-4 xl:px-0')}>
                     {fields.cards.map((card) => (
                         <Card key={card.sys.id} data={card} />
                     ))}

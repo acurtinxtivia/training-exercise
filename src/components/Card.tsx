@@ -18,13 +18,21 @@ const Card = ({ data }: { data: { fields: TypeCardFields } }) => {
                 {data.fields.image && (
                     <ImageWithFocalPoint 
                         fields={data.fields.image.fields} 
-                        className='rounded-md w-full h-full'
+                        className='rounded-md w-full h-full text-[18px] md:text-[20px] lg:text-[22px]'
                     />
                 )}
             </div>
-            <div className='flex flex-col items-start gap-6 self-end'>
-                <Heading size={data.fields.titleSize} className="font-bold tracking-wide">{data.fields.title}</Heading>
-                <p className='font-light tracking-wide text-light-gray'>{data.fields.subText}</p>
+            <div className='flex flex-col items-start gap-6 self-end pr-[9px]'>
+                <div>
+                    <Heading 
+                        size={data.fields.titleSize} 
+                        className="font-bold text-[18px] leading-[21px] md:text-[20px] md:leading-[24px] xl:text-[22px] xl:leading-[30px]"
+                    >
+                        {data.fields.title}
+                    </Heading>
+                    <hr className='w-[45px] h-[3px] bg-primary mt-[11px]' />
+                </div>
+                <p className='font-light leading-[24px] text-light-gray'>{data.fields.subText}</p>
             </div>
         </div>
     )
