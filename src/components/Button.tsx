@@ -14,7 +14,7 @@ const Button = ({ theme = 'primary', className = '', children }: PropsWithChildr
         'image': ''
     }
     return (
-        <button className={cn(`btn text-lg`, classNames[theme], className)}>
+        <button className={cn(`btn text-lg whitespace-nowrap`, classNames[theme], className)}>
             {children}
         </button>
     )
