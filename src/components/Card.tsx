@@ -30,7 +30,7 @@ const Card = ({ data }: { data: { fields: TypeCardFields } }) => {
                     >
                         {data.fields.title}
                     </Heading>
-                    <hr className='w-[45px] h-[3px] bg-primary mt-[11px]' />
+                    <hr className='w-[45px] h-[4px] bg-primary mt-[11px]' />
                 </div>
                 <p className='font-light leading-[24px] text-light-gray'>{data.fields.subText}</p>
             </div>
