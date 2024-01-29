@@ -1,12 +1,20 @@
 import type { PropsWithChildren } from "react";
+import cn from 'classnames'
 
 interface ButtonProps {
-    theme: 'primary' | 'secondary' | 'image' | undefined,
+    theme?: 'primary' | 'secondary' | 'white' | 'image' | undefined;
+    className?: string;
 }
 
-const Button = ({ theme = 'primary', children }: PropsWithChildren<ButtonProps>) => {
+const Button = ({ theme = 'primary', className = '', children }: PropsWithChildren<ButtonProps>) => {
+    const classNames = {
+        'primary': 'btn-primary',
+        'secondary': 'btn-secondary',
+        'white': 'btn-white',
+        'image': ''
+    }
     return (
-        <button className={`btn ${theme === 'primary' ? 'btn-primary' : 'btn-secondary'} text-lg`}>
+        <button className={cn(`btn text-lg`, classNames[theme], className)}>
             {children}
         </button>
     )
