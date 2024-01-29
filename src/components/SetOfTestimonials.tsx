@@ -16,7 +16,7 @@ const SetOfTestimonials = ({ fields }: { fields: TypeSetOfTestimonialsFields }) 
     }
 
     return (
-        <section className="w-full flex justify-center pt-[68px]">
+        <section className="w-full flex justify-center pt-[68px] pb-[50px]">
             <div className="w-full flex flex-col items-center" style={{ maxWidth: fields.maxWidth }}>
                 <Heading 
                     size={fields.titleSize} 
@@ -25,7 +25,7 @@ const SetOfTestimonials = ({ fields }: { fields: TypeSetOfTestimonialsFields }) 
                     {fields.title}
                 </Heading>
                 <div className='w-[50px] lg:w-[68px] h-[3px] bg-primary mb-[40px] md:mb-[60px]' />
-                <div className='w-full flex items-center gap-2 mx-auto max-w-[480px] sm:max-w-none sm:mx-none'>
+                <div className='w-full flex items-center gap-2 mx-auto max-w-[480px] pb-[35px] sm:max-w-none sm:mx-none'>
                     <button onClick={() => scroll(-250)} className='group hidden sm:block'>
                         <ChevronLeftIcon className='w-20 h-20 text-silver group-active:text-primary' strokeWidth={0.4} />
                     </button>
