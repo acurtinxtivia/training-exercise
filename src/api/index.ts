@@ -14,38 +14,24 @@ if (accessToken && space) {
     });
 }
 
-
-async function fetchEntries(contentType: string, slug: string) {
+async function fetchEntries(options: any) {
     if (accessToken && client) {
         const entries = await client.getEntries({
-            content_type: contentType,
-            "fields.slug": slug,
+            ...options,
             include: 5
         });
 
         if (entries.items) return entries.items;
-        console.log(`Error getting entries for ${contentType}`);
+        console.log(`Error getting entries`);
     }
     console.log("Access Token is undefined");
 }
 
-export async function fetchLandingEntriesBySlug(slug: string = 'home') {
-    console.log('Fetching Published');
-    return await fetchEntries("pageLanding", slug);
+export async function fetchAllPages() {
+    return await fetchEntries({ content_type: 'pageLanding' })
 }
 
-export async function fetchBlogPosts(limit: number = 10) {
-    if (accessToken && client) {
-        const entries = await client.getEntries({
-            content_type: 'pageLanding',
-            order: 'sys.createdAt',
-            "metadata.tags.sys.id[in]": 'blogPost',
-            include: 5,
-            limit
-        })
-
-        if (entries.items) return entries.items
-        console.log('Error getting blog posts')
-    }
-    console.log('Access token is undefined')
+export async function fetchLandingEntriesBySlug(slug: string = 'home') {
+    console.log('Fetching Published');
+    return await fetchEntries({content_type: "pageLanding", "fields.slug": slug});
 }
