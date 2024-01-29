@@ -32,7 +32,7 @@ const Hero = ({ fields }: { fields: TypeHeroImageFields }) => {
                 <div className='absolute top-0 left-0 w-full h-full bg-black/30 z-0' />
             )}
             <div className="absolute w-full h-full top-0 left-0 flex justify-center pt-[68px] md:pt-[125px] xl:pt-[152px]">
-                <div className={cn(`w-full flex flex-col gap-4 z-10 px-[11vw] xl:px-4 text-center`, alignmentClassName, textAlignClassName)} style={{ maxWidth: fields.contentMaxWidth }}>
+                <div className={cn(`w-full flex flex-col gap-4 z-10 px-8 xl:px-4 text-center`, alignmentClassName, textAlignClassName)} style={{ maxWidth: fields.contentMaxWidth }}>
                     <div style={{ maxWidth: fields.headlineMaxWidth || 'unset' }}>
                         <Heading 
                             size="h1"

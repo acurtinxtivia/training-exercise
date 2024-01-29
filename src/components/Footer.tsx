@@ -8,6 +8,9 @@ import PhoneIcon from './icons/PhoneIcon'
 import MailIcon from './icons/MailIcon'
 import ClockAltIcon from './icons/ClockAltIcon'
 import LocationIcon from './icons/LocationIcon'
+import FacebookIcon from './icons/FacebookIcon'
+import TwitterIcon from './icons/TwitterIcon'
+import GoogleIcon from './icons/GoogleIcon'
 
 const Footer = ({ fields }: { fields: TypeFooterFields }) => {
     return (
@@ -20,10 +23,15 @@ const Footer = ({ fields }: { fields: TypeFooterFields }) => {
                         <div className='mt-[18px] font-light leading-[24px]'>
                             {documentToReactComponents(fields.content)}
                         </div>
-                        <div className='mt-[22px]'>
+                        <div className='w-full mt-[22px] flex items-center justify-center md:justify-start gap-[30px]'>
                             <em className='font-light'>
                                 Follow Us:
                             </em>
+                            <div className='flex gap-2'>
+                                <FacebookIcon className='bg-white text-primary-dark h-[27px] w-[27px] p-1 rounded-full' />
+                                <TwitterIcon className='bg-white text-primary-dark h-[27px] w-[27px] p-[6px] rounded-full' />
+                                <GoogleIcon className='bg-white text-primary-dark h-[27px] w-[27px] p-[6px] rounded-full' />
+                            </div>
                         </div>
                     </div>
                     {fields.navigation && (
