@@ -5,7 +5,7 @@ import Banner from "./Banner"
 import SetOfCards from "./SetOfCards"
 import SetOfTestimonials from "./SetOfTestimonials"
 import ImageAndText from "./ImageAndText"
-import BlogPreview from "./BlogPreview"
+import BlogList from "./BlogList/BlogList"
 import BlogPost from './BlogPost'
 import Footer from "./Footer"
 import Carousel from "./Carousel"
@@ -29,8 +29,8 @@ const PageRenderer = ({ data }: { data: TypePageLanding }) => {
                         return <ImageAndText fields={section.fields} key={section.sys.id} />
                     case 'carousel':
                         return <Carousel fields={section.fields} key={section.sys.id} />
-                    case 'blogPreview':
-                        return <BlogPreview fields={section.fields} key={section.sys.id} />
+                    case 'blogList':
+                        return <BlogList fields={section.fields} key={section.sys.id} />
                     case 'blogPost':
                         return <BlogPost fields={section.fields} key={section.sys.id} />
                     case 'footer':
