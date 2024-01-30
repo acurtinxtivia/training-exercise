@@ -35,3 +35,18 @@ export async function fetchLandingEntriesBySlug(slug: string = 'home') {
     console.log('Fetching Published');
     return await fetchEntries({content_type: "pageLanding", "fields.slug": slug});
 }
+
+export async function fetchBlogPosts(limit = 0) {
+    const options: any = {
+        content_type: 'blogPost',
+    }
+    if (limit) options.limit = limit
+    return await fetchEntries(options)
+}
+
+export async function fetchBlogPostBySlug(slug = '') {
+    return await fetchEntries({
+        content_type: 'blogPost',
+        'fields.slug': slug
+    })
+}
