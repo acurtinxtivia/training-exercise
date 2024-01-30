@@ -17,8 +17,9 @@ if (accessToken && space) {
 async function fetchEntries(options: any) {
     if (accessToken && client) {
         const entries = await client.getEntries({
+            order: '-sys.createdAt',
+            include: 5,
             ...options,
-            include: 5
         });
 
         if (entries.items) return entries.items;
@@ -49,4 +50,16 @@ export async function fetchBlogPostBySlug(slug = '') {
         content_type: 'blogPost',
         'fields.slug': slug
     })
+}
+
+export async function fetchBlogPostsByTopic(topic: string, postId?: string, limit = 3) {
+    const options: any = {
+        content_type: 'blogPost',
+        'fields.topic': topic,
+        limit,
+    }
+    if (postId) {
+        options['sys.id[ne]'] = postId
+    }
+    return await fetchEntries(options)
 }
