@@ -11,7 +11,7 @@ const cardDisplayClass = {
 
 const SetOfCards = ({ fields }: { fields: TypeSetOfCardFields }) => {
     return (
-        <section className="w-full flex justify-center pt-[68px]">
+        <section className="w-full flex justify-center pt-[68px] mb-16">
             <div className={`w-full flex flex-col items-center px-4`} style={{ maxWidth: fields.maxWidth }}>
                 {fields.title && (
                     <Heading 
