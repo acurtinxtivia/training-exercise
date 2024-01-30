@@ -33,6 +33,28 @@ const config: Config = {
       boxShadow: {
         light: 'rgba(174, 174, 174, 0.05) 0px 0px 6px 3px'
       },
+      keyframes: {
+        'scroll-left': {
+          '0%': {
+            transform: 'translateX(-200%)'
+          },
+          '100%': {
+            transform: 'translateX(-100%)'
+          }
+        },
+        'scroll-right': {
+          '0%': {
+            transform: 'translateX(0%)'
+          },
+          '100%': {
+            transform: 'translateX(-100%)'
+          }
+        }
+      },
+      animation: {
+        'scroll-left': 'scroll-left 0.3s 1 ease-in-out',
+        'scroll-right': 'scroll-right 0.3s 1 ease-in-out'
+      }
     },
   },
   plugins: [],
