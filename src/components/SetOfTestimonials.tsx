@@ -15,8 +15,8 @@ const SetOfTestimonials = ({ fields }: { fields: TypeSetOfTestimonialsFields }) 
     const [scrollingRight, setScrollingRight] = useState(false)
 
     const scrollingClasses = {
-        'scroll-left-animation': scrollingLeft,
-        'scroll-right-animation': scrollingRight,
+        'animate-scroll-left': scrollingLeft,
+        'animate-scroll-right': scrollingRight,
         'translate-x-[-100%]': !scrollingLeft && !scrollingRight,
     }
 
