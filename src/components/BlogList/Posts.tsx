@@ -5,13 +5,19 @@ import BlogPostPreview from "../BlogPostPreview"
 import Topics from "./Topics"
 import Paginator from "./Paginator"
 
-const Posts = ({ blogPosts, postsPerPage }: { blogPosts: any, postsPerPage: number }) => {
+interface PostsProps {
+    blogPosts: any;
+    postsPerPage: number;
+    topics: any;
+}
+
+const Posts = ({ blogPosts, postsPerPage, topics }: PostsProps) => {
     const searchParams = useSearchParams()
     const pathname = usePathname()
     const { replace } = useRouter()
     const selectedTopic = searchParams.get('topic')
     const currentPage = Number(searchParams.get('page')) || 1
-    const filteredPosts = selectedTopic ? blogPosts.filter(post => post.fields.topic === selectedTopic) : blogPosts
+    const filteredPosts = selectedTopic ? blogPosts.filter(post => post.fields.blogTopic.fields.label === selectedTopic) : blogPosts
     const pagePosts = filteredPosts.slice((currentPage - 1) * postsPerPage, postsPerPage * currentPage)
 
     const onClickTopic = (topic: string = '') => {
@@ -49,7 +55,7 @@ const Posts = ({ blogPosts, postsPerPage }: { blogPosts: any, postsPerPage: numb
                         ))}
                     </div>
                 )}
-                <Topics onClickTopic={onClickTopic} />
+                <Topics onClickTopic={onClickTopic} topics={topics} />
             </div>
             <Paginator
                 currentPage={currentPage}

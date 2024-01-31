@@ -1,9 +1,10 @@
-import { fetchBlogPosts } from "~/api"
+import { fetchAllTopics, fetchBlogPosts } from "~/api"
 import Heading from "../Heading"
 import Posts from "./Posts"
 
 const BlogList = async ({ fields }: { fields: any }) => {
     const blogPosts = await fetchBlogPosts()
+    const topics = await fetchAllTopics()
 
     return (
         <section className="w-full flex justify-center pt-[68px] pb-[85px]">
@@ -11,7 +12,7 @@ const BlogList = async ({ fields }: { fields: any }) => {
                 {fields.title && (
                     <Heading size='h1'>{fields.title}</Heading>
                 )}
-                <Posts blogPosts={blogPosts} postsPerPage={fields.numberOfPosts} />
+                <Posts blogPosts={blogPosts} postsPerPage={fields.numberOfPosts} topics={topics} />
             </div>
         </section>
     )

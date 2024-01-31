@@ -16,7 +16,7 @@ const BlogPostHeader = ({ fields, createdAt }: { fields: any, createdAt: string 
                         day: 'numeric'
                     })}</p>
                     <div className="h-[18px] border-l hidden md:block"></div>
-                    <p className=""><span className="font-bold text-black">Category:</span> {fields.topic}</p>
+                    <p className=""><span className="font-bold text-black">Category:</span> {fields.blogTopic.fields.label}</p>
                 </div>
                 <hr className="mt-[18px]" />
             </div>
