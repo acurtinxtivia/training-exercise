@@ -63,3 +63,9 @@ export async function fetchBlogPostsByTopic(topic: string, postId?: string, limi
     }
     return await fetchEntries(options)
 }
+
+export async function fetchAllTopics() {
+    return await fetchEntries({
+        content_type: 'blogPostTopic'
+    })
+}
