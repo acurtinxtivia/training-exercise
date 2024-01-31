@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import { TypeHeroImageFields } from "../../types/contentful";
+import { TypeHeroImageFields } from "../../types/contentful-types";
 import Link from "./Link";
 import Heading from "./Heading";
 import ImageWithFocalPoint from './ImageWithFocalPoint';
@@ -43,7 +43,7 @@ const Hero = ({ fields }: { fields: TypeHeroImageFields }) => {
                         </Heading>
                     </div>
                     {fields.subText && (
-                        <div style={{ color: fields?.textColor.value || 'inherit' }} className='text-xl font-light text-[18px] lg:text-[22px] lg:leading-[36px]'>
+                        <div style={{ color: fields?.textColor?.value || 'inherit' }} className='text-xl font-light text-[18px] lg:text-[22px] lg:leading-[36px]'>
                             {documentToReactComponents(fields.subText)}
                         </div>
                     )}

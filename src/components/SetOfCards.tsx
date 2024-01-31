@@ -1,6 +1,6 @@
 import cn from 'classnames'
 
-import { TypeSetOfCardFields } from "../../types/contentful"
+import { TypeSetOfCardFields } from "../../types/contentful-types"
 import Heading from "./Heading"
 import Card from './Card'
 

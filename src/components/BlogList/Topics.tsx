@@ -1,8 +1,9 @@
 import ChevronRightIcon from "../icons/ChevronRightIcon"
+import type { TypeBlogPostTopic } from "../../../types/contentful-types";
 
 interface TopicsProps {
     onClickTopic: (topic?: string) => void;
-    topics: any;
+    topics: TypeBlogPostTopic[];
 }
 
 const Topics = ({ onClickTopic, topics }: TopicsProps) => {
@@ -10,7 +11,7 @@ const Topics = ({ onClickTopic, topics }: TopicsProps) => {
         <div className="w-[375px] lg:w-1/3 mt-[40px] lg:mt-0 lg:px-4">
             <h4 className="font-bold text-[18px] leading-[22px] lg:text-[20px] lg:leading-[24px]">Categories</h4>
             <ul className="mt-[12px]">
-                    {topics.map(topic => (
+                    {topics.map((topic) => (
                         <li key={topic.sys.id} className="w-full text-extra-light-gray hover:text-primary transition-all px-[7px] py-[12px] border-b">
                             <button className="flex items-center gap-[6px]" onClick={() => onClickTopic(topic.fields.label)}>
                                 <ChevronRightIcon strokeWidth={1.5} className="h-5 w-5" />

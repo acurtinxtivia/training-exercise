@@ -1,6 +1,6 @@
 import NextLink from "next/link"
 
-import { TypeLinkFields } from "../../types/contentful"
+import { TypeLinkFields } from "../../types/contentful-types"
 import Button from "./Button"
 
 const Link = ({ fields }: { fields: TypeLinkFields }) => {

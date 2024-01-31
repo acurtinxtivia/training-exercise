@@ -2,7 +2,7 @@ import { fetchLandingEntriesBySlug } from '~/api'
 import PageRenderer from '~/components/PageRenderer';
 
 export default async function Home() {
-  const [data]: any = await fetchLandingEntriesBySlug();
+  const [data] = await fetchLandingEntriesBySlug();
 
   return (
     <PageRenderer data={data} />

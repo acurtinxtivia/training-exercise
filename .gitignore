@@ -38,3 +38,5 @@ next-env.d.ts
 contentful-content-model-import.json
 
 /contentful/images.ctfassets.net
+
+.vscode

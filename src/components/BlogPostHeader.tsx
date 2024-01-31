@@ -1,7 +1,8 @@
 import ImageWithFocalPoint from "./ImageWithFocalPoint"
 import Heading from "./Heading"
+import type { TypeBlogPostFields } from "../../types/contentful-types"
 
-const BlogPostHeader = ({ fields, createdAt }: { fields: any, createdAt: string }) => {
+const BlogPostHeader = ({ fields, createdAt }: { fields: TypeBlogPostFields, createdAt: string }) => {
     return (
         <div className="w-full flex flex-col gap-4">
             <div className="flex-shrink-0 ">

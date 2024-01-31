@@ -4,11 +4,12 @@ import { useSearchParams, usePathname, useRouter} from "next/navigation"
 import BlogPostPreview from "../BlogPostPreview"
 import Topics from "./Topics"
 import Paginator from "./Paginator"
+import type { TypeBlogPost, TypeBlogPostTopic } from "../../../types/contentful-types"
 
 interface PostsProps {
-    blogPosts: any;
+    blogPosts: TypeBlogPost[];
     postsPerPage: number;
-    topics: any;
+    topics: TypeBlogPostTopic[];
 }
 
 const Posts = ({ blogPosts, postsPerPage, topics }: PostsProps) => {
@@ -17,7 +18,8 @@ const Posts = ({ blogPosts, postsPerPage, topics }: PostsProps) => {
     const { replace } = useRouter()
     const selectedTopic = searchParams.get('topic')
     const currentPage = Number(searchParams.get('page')) || 1
-    const filteredPosts = selectedTopic ? blogPosts.filter(post => post.fields.blogTopic.fields.label === selectedTopic) : blogPosts
+    // const filteredPosts = selectedTopic ? blogPosts.filter(post => post.fields.blogTopic.fields.label === selectedTopic) : blogPosts
+    const filteredPosts = blogPosts
     const pagePosts = filteredPosts.slice((currentPage - 1) * postsPerPage, postsPerPage * currentPage)
 
     const onClickTopic = (topic: string = '') => {

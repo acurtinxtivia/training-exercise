@@ -4,8 +4,15 @@ import { useState } from "react"
 import cn from 'classnames'
 
 import ChevronDownIcon from "../icons/ChevronDownIcon"
+import type { TypeNavigationItem, TypeNavigationMenu } from "../../../types/contentful-types"
 
-const SubMenus = ({ submenus, menuOpen, stickyNav = false }: { submenus: any, menuOpen: boolean, stickyNav?: boolean }) => {
+interface SubMenusProps {
+    submenus: TypeNavigationMenu[];
+    menuOpen: boolean;
+    stickyNav?: boolean;
+}
+
+const SubMenus = ({ submenus, menuOpen, stickyNav = false }: SubMenusProps) => {
     const displayClass = 'hidden group-hover:flex'
     if (submenus.length > 1) {
         const topOffset = stickyNav ? 'top-[30px]' : 'top-[120px]'
@@ -16,7 +23,7 @@ const SubMenus = ({ submenus, menuOpen, stickyNav = false }: { submenus: any, me
                         <div className="flex flex-col text-light-gray" key={submenu.sys.id}>
                             {submenu.fields.title && <p className="font-normal">{submenu.fields.title}</p>}
                             <ul className="font-light min-w-[268px]">
-                                {submenu.fields.navigationItems.map((item) => (
+                                {submenu.fields.navigationItems  && submenu.fields.navigationItems.map((item) => (
                                     <li key={item.sys.id} className="hover:text-primary px-2 py-2 whitespace-nowrap">
                                         <Link href={`/${item.fields.slug}`}>
                                             {item.fields.label}
@@ -35,9 +42,9 @@ const SubMenus = ({ submenus, menuOpen, stickyNav = false }: { submenus: any, me
     return (
         <div className={cn("absolute top-[100%] pt-5 -left-[18px] hidden group-hover:flex", displayClass)}>
             <div className="bg-white border">
-                {submenu.title && <p>{submenu.title}</p>}
+                {submenu.fields.title && <p>{submenu.fields.title}</p>}
                 <ul className="text-light-gray font-light min-w-[268px]">
-                    {submenu.fields.navigationItems.map((item) => (
+                    {submenu.fields.navigationItems && submenu.fields.navigationItems.map((item) => (
                         <li key={item.sys.id} className="hover:text-primary px-[18px] py-[12px] whitespace-nowrap border-b">
                             <Link href={`/${item.fields.slug}`}>
                                 {item.fields.label}
@@ -50,7 +57,7 @@ const SubMenus = ({ submenus, menuOpen, stickyNav = false }: { submenus: any, me
     )
 }
 
-const NavItem = ({ item, stickyNav = false }: { item: any , stickyNav: boolean }) => {
+const NavItem = ({ item, stickyNav = false }: { item: TypeNavigationItem , stickyNav: boolean }) => {
     const [menuOpen, setMenuOpen] = useState(false)
     const pathname = usePathname()
     const currentPageSlug = pathname.split('/')[1] || 'home'

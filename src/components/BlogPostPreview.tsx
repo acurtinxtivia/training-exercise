@@ -3,8 +3,9 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import Button from "./Button"
 import BlogPostHeader from "./BlogPostHeader"
+import type { TypeBlogPostFields } from "../../types/contentful-types"
 
-const BlogPostPreview = ({ fields, createdAt }: { fields: any, createdAt: string }) => {
+const BlogPostPreview = ({ fields, createdAt }: { fields: TypeBlogPostFields, createdAt: string }) => {
     return (
         <div>
             {fields ? (

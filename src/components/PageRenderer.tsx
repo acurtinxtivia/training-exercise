@@ -1,4 +1,4 @@
-import type { TypePageLanding } from "../../types/contentful"
+import type { TypePageLanding } from "../../types/contentful-types"
 import PageHeader from "./PageHeader"
 import Hero from "./Hero"
 import Banner from "./Banner"
@@ -13,7 +13,7 @@ import Carousel from "./Carousel"
 const PageRenderer = ({ data }: { data: TypePageLanding }) => {
     return (
         <main className='w-full flex flex-col items-center min-h-screen'>
-            {data.fields.sections.map((section: any) => {
+            {data.fields.sections.map((section) => {
                 switch(section.sys.contentType.sys.id) {
                     case 'header':
                         return <PageHeader fields={section.fields} key={section.sys.id} />

@@ -1,6 +1,6 @@
 import cn from 'classnames'
 
-import { TypeNavigationMenuFields } from "../../../types/contentful";
+import { TypeNavigationMenuFields } from "../../../types/contentful-types";
 import NavItem from "./NavItem";
 
 interface NavBarProps {

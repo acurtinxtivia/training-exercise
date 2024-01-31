@@ -1,7 +1,7 @@
 import { documentToReactComponents} from '@contentful/rich-text-react-renderer'
 import cn from 'classnames'
 
-import type { TypeImageAndTextFields } from '../../types/contentful'
+import type { TypeImageAndTextFields } from '../../types/contentful-types'
 import ImageWithFocalPoint from "./ImageWithFocalPoint"
 import Heading from './Heading'
 

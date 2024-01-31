@@ -2,13 +2,14 @@
 import { useState, useEffect } from 'react'
 import cn from 'classnames'
 
+import type { TypeCarouselFields, TypeHeroImage } from '../../types/contentful-types'
 import ChevronLeftIcon from "./icons/ChevronLeftIcon"
 import ChevronRightIcon from "./icons/ChevronRightIcon"
 import Hero from './Hero'
 
 type Direction = 'next' | 'prev';
 
-const Carousel = ({ fields }: { fields: any }) => {
+const Carousel = ({ fields }: { fields: TypeCarouselFields }) => {
     const slides = fields.slides;
     const slideDuration = fields.slideDuration || 5
     const [currentIndex, setCurrentIndex] = useState(slides.length - 1)
@@ -66,7 +67,7 @@ const Carousel = ({ fields }: { fields: any }) => {
     return (
         <section className="w-full flex justify-center relative">
             <div className='w-full overflow-hidden flex'>
-                {slides.map((slide: any, idx: number) => (
+                {slides.map((slide: TypeHeroImage, idx: number) => (
                     <div key={slide.sys.id} className={cn('w-full flex-shrink-0', slidingClasses)} style={{ order: getOrder(idx)}}>
                         <Hero fields={slide.fields}  />
                     </div>

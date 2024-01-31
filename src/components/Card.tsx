@@ -1,6 +1,6 @@
 import cn from 'classnames'
 
-import type { TypeCardFields } from "../../types/contentful"
+import type { TypeCardFields } from "../../types/contentful-types"
 import Heading from "./Heading"
 import ImageWithFocalPoint from './ImageWithFocalPoint'
 

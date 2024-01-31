@@ -1,5 +1,5 @@
 import * as contentful from 'contentful';
-import type { ContentfulClientApi, EntryFieldTypes } from 'contentful'
+import type { ContentfulClientApi } from 'contentful'
 
 const space = process.env.CONTENTFUL_SPACE_ID;
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;

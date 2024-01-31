@@ -1,9 +1,17 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import cn from 'classnames'
 
-import { TypeBannerFields } from "../../types/contentful"
+import { TypeBannerFields } from "../../types/contentful-types"
 import Heading from "./Heading"
 import Link from './Link'
+
+type SectionStyle = {
+    maxWidth: number;
+    paddingTop: string;
+    paddingBottom: string;
+    backgroundColor?: string;
+    backgroundImage?: string;
+}
 
 const sectionAlignmentClass = {
     Left: 'items-start',
@@ -24,7 +32,7 @@ const Banner = ({ fields }: { fields: TypeBannerFields }) => {
         verticalPadding = verticalPadding * multiplier
     }
 
-    const sectionStyle: any = {
+    const sectionStyle: SectionStyle = {
         maxWidth: fields.maxWidth,
         paddingTop: `${verticalPadding}rem`,
         paddingBottom: `${verticalPadding}rem`,
@@ -34,7 +42,7 @@ const Banner = ({ fields }: { fields: TypeBannerFields }) => {
         sectionStyle.backgroundColor = fields.backgroundColor?.value
     }
 
-    if (fields.backgroundImage) {
+    if (fields.backgroundImage && fields.backgroundImage.fields.image.fields.file) {
         sectionStyle.backgroundImage = `url(https:${fields.backgroundImage.fields.image.fields.file.url})`
     }
 
@@ -42,6 +50,7 @@ const Banner = ({ fields }: { fields: TypeBannerFields }) => {
         maxWidth: fields.contentMaxWidth,
         color: fields.textColor?.value || 'inherit'
     }
+
     return (
         <section className="w-full flex justify-center">
             <div className={cn("relative w-full flex flex-col bg-cover bg-fixed px-4", sectionAlignmentClass[fields.sectionAlignment])} style={sectionStyle}>

@@ -1,6 +1,6 @@
 import { documentToReactComponents} from '@contentful/rich-text-react-renderer'
 
-import { TypeTestimonialFields } from "../../types/contentful"
+import { TypeTestimonialFields } from "../../types/contentful-types"
 import ImageWithFocalPoint from './ImageWithFocalPoint'
 
 const Testimonial = ({ fields }: { fields: TypeTestimonialFields }) => {

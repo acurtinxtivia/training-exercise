@@ -5,8 +5,9 @@ import cn from 'classnames'
 
 import ChevronDownIcon from '../icons/ChevronDownIcon'
 import ChevronUpIcon from '../icons/ChevronUpIcon'
+import { TypeNavigationItem } from '../../../types/contentful-types'
 
-const MobileNavItem = ({ item }: { item: any }) => {
+const MobileNavItem = ({ item }: { item: TypeNavigationItem }) => {
     const [menuOpen, setMenuOpen] = useState(false)
     const pathname = usePathname()
     const currentPageSlug = pathname.split('/')[1] || 'home'
@@ -36,7 +37,7 @@ const MobileNavItem = ({ item }: { item: any }) => {
                                 <p className='px-[20px] pt-3 text-black font-normal'>{submenu.fields.title}</p>
                             )}
                             <ul className='flex flex-col'>
-                                {submenu.fields.navigationItems.map((item) => {
+                                {submenu.fields.navigationItems && submenu.fields.navigationItems.map((item) => {
                                      const colorClass = currentPageSlug === item.fields.slug ? 'bg-primary text-white' : 'text-primary'
                                      const paddingClass = submenu.fields.title ? 'px-[35px]' : 'px-[20px]'
                                      return (

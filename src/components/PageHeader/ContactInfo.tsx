@@ -3,8 +3,9 @@ import cn from 'classnames'
 import ClockIcon from "../icons/ClockIcon"
 import LocationIcon from "../icons/LocationIcon"
 import PhoneIcon from "../icons/PhoneIcon"
+import type { TypeContactInfoFields } from '../../../types/contentful-types'
 
-const ContactInfo = ({ fields }: { fields: any }) => {
+const ContactInfo = ({ fields }: { fields: TypeContactInfoFields }) => {
     const containerClass = "flex flex-col md:flex-row items-center text-center md:text-left gap-[14px]"
     const iconClass = "h-[32px] w-[32px]"
     const textClass = "font-bold"

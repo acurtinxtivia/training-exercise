@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import cn from 'classnames'
 
-import { TypeHeaderFields } from "../../../types/contentful"
+import { TypeHeaderFields } from "../../../types/contentful-types"
 import ImageWithFocalPoint from "../ImageWithFocalPoint"
 import NavBar from "./NavBar"
 import MobileNav from './MobileNav'
@@ -73,20 +73,22 @@ const PageHeader = ({ fields }: { fields: TypeHeaderFields }) => {
                 </div>
             </div>
             <div className='relative'>
-            {navOpen && (
+            {navOpen && fields.navigationMenu && (
                 <MobileNav
                     fields={fields.navigationMenu?.fields}
                     maxWidth={fields.maxWidth}
                 />
             )}
-            <NavBar 
-                fields={fields.navigationMenu?.fields}
-                maxWidth={fields.maxWidth}
-                sticky={navBarSticky}
-            />
-            {contactOpen && (
+            {fields.navigationMenu && (
+                <NavBar 
+                    fields={fields.navigationMenu?.fields}
+                    maxWidth={fields.maxWidth}
+                    sticky={navBarSticky}
+                />
+            )}
+            {contactOpen && fields.contactInfo && (
                 <div className='lg:hidden w-full flex justify-center pt-9 pb-[20px]'>
-                    <ContactInfo fields={fields.contactInfo.fields}/>
+                    <ContactInfo fields={fields.contactInfo?.fields}/>
                 </div>
             )}
             </div>

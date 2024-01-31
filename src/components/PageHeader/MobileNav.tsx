@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { TypeNavigationMenuFields } from "../../../types/contentful";
+import { TypeNavigationMenuFields } from "../../../types/contentful-types";
 import MobileNavItem from "./MobileNavItem";
 
 interface MobileNavProps {

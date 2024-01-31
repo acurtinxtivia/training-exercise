@@ -8,6 +8,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import ImageWithFocalPoint from "~/components/ImageWithFocalPoint"
 import ArrowLeftIcon from "~/components/icons/ArrowLeftIcon"
 import Banner from "~/components/Banner"
+import type { TypeBlogPost } from "../../../../types/contentful-types"
 
 export async function generateStaticParams() {
     const allBlogPosts = await fetchBlogPosts()

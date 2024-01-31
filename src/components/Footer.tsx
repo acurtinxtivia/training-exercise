@@ -1,8 +1,7 @@
-'use client'
 import Link from 'next/link'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
-import { TypeFooterFields } from "../../types/contentful"
+import { TypeFooterFields } from "../../types/contentful-types"
 import ImageWithFocalPoint from './ImageWithFocalPoint'
 import PhoneIcon from './icons/PhoneIcon'
 import MailIcon from './icons/MailIcon'
