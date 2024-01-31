@@ -28,7 +28,8 @@ const config: Config = {
         'extra-light-gray': '#999999',
         'off-white': '#ebebeb',
         'silver': '#bab8b8',
-        'blue-gray': '#888c94'
+        'blue-gray': '#888c94',
+        'dark-blue': '#282e3a'
       },
       boxShadow: {
         light: 'rgba(174, 174, 174, 0.05) 0px 0px 6px 3px'
@@ -52,8 +53,8 @@ const config: Config = {
         }
       },
       animation: {
-        'scroll-left': 'scroll-left 0.3s 1 ease-in-out',
-        'scroll-right': 'scroll-right 0.3s 1 ease-in-out'
+        'scroll-left': 'scroll-left 300ms 1 ease-in-out',
+        'scroll-right': 'scroll-right 300ms 1 ease-in-out'
       }
     },
   },
