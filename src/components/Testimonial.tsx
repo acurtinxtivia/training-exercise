@@ -7,7 +7,8 @@ const Testimonial = ({ fields }: { fields: TypeTestimonialFields }) => {
 
     return (
         <div
-            className="min-w-[390px] md:min-w-[319px] lg:min-w-[286px] xl:min-w-[308px] mr-[20px] md:mr-[30px] lg:mr-[15px] xl:mr-[66px]"
+            className="sm:max-w-[390px] md:max-w-[319px] lg:max-w-[286px] xl:max-w-[308px] mx-[10px] md:mr-[30px] md:ml-0 lg:mr-[15px] lg:ml-0 xl:mr-[66px] xl:ml-0"
+            style={{ width: 'calc(100vw - 90px)' }}
         >
             <div className='flex flex-col items-center justify-between shadow-light border border-off-white/70 px-[30px] pt-[40px] pb-[30px] rounded-[5px] text-center gap-[22px]'>
                 <div className='w-full flex justify-around items-center gap-4'>

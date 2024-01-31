@@ -17,7 +17,6 @@ const SetOfTestimonials = ({ fields }: { fields: TypeSetOfTestimonialsFields }) 
     const scrollingClasses = {
         'animate-scroll-left': scrollingLeft,
         'animate-scroll-right': scrollingRight,
-        'translate-x-[-100%]': !scrollingLeft && !scrollingRight,
     }
 
     const scrollNext = () => {
@@ -58,13 +57,10 @@ const SetOfTestimonials = ({ fields }: { fields: TypeSetOfTestimonialsFields }) 
 
             const onTouchEnd = () => {
                 const delta = swipeXEnd - swipeXStart
-
                 if (delta > 0) {
-                    console.log('swiped right')
                     scrollPrev()
                 }
                 if (delta < 0) {
-                    console.log('swiped left')
                     scrollNext()
                 }
             }
@@ -89,29 +85,23 @@ const SetOfTestimonials = ({ fields }: { fields: TypeSetOfTestimonialsFields }) 
                 >
                     {fields.title}
                 </Heading>
-                <div className='w-[50px] lg:w-[68px] h-[3px] bg-primary mb-[40px] md:mb-[60px]' />
-                <div className='relative w-full flex items-center mx-auto max-w-[480px] pb-[35px] sm:max-w-none sm:mx-none md:w-[750px] lg:w-[970px] xl:w-[1200px]'>
-                    <button onClick={scrollPrev} className='group hidden md:block w-[72px]'>
-                        <ChevronLeftIcon className='w-20 h-20 text-silver group-active:text-primary' strokeWidth={0.4} />
+                <hr className='w-[50px] lg:w-[68px] h-[3px] bg-primary mb-[40px] md:mb-[60px]' />
+                <div className='w-full flex justify-center'>
+                    <button onClick={scrollPrev} className='group hidden md:block'>
+                        <ChevronLeftIcon className='h-[70px] text-silver group-active:text-primary' strokeWidth={0.4} />
                     </button>
-                    <div
-                        className="w-full flex flex-no-wrap overflow-x-hidden"
-                        ref={scrollArea}
-                    >
-                        <div className={cn(scrollingClasses)}>
+                    <div className='w-full sm:max-w-[450px] md:max-w-[670px] lg:max-w-[890px] xl:max-w-none flex justify-center md:justify-normal overflow-x-hidden' ref={scrollArea}>
+                        <div className={cn(scrollingClasses, 'translate-x-[-100%]')}>
                             <Testimonial fields={testimonials[testimonials.length - 1].fields} />
                         </div>
                         {testimonials.map((testimonial) => (
-                            <div className={cn(scrollingClasses)} key={testimonial.sys.id}>
+                            <div className={cn(scrollingClasses, 'translate-x-[-100%]')} key={testimonial.sys.id}>
                                 <Testimonial fields={testimonial.fields} />
                             </div>
                         ))}
-                        <div className={cn(scrollingClasses)}>
-                            <Testimonial fields={testimonials[0].fields} />
-                        </div>
                     </div>
-                    <button onClick={scrollNext} className='group hidden md:block w-[72px]'>
-                        <ChevronRightIcon className='h-20 w-20 stroke-silver group-active:text-primary' strokeWidth={0.4} />
+                    <button onClick={scrollNext} className='group hidden md:block'>
+                        <ChevronRightIcon className='h-[70px] stroke-silver group-active:text-primary' strokeWidth={0.4} />
                     </button>
                 </div>
             </div>
