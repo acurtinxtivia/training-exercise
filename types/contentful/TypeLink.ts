@@ -9,7 +9,7 @@ export interface TypeLinkFields {
     isExternal?: EntryFields.Boolean;
     displayStyle?: "Button" | "Link";
     materialDesignIcon?: Entry<TypeIconFields>;
-    theme?: "image" | "primary" | "secondary";
+    theme?: "image" | "primary" | "secondary" | "white";
     buttonImage?: Asset;
 }
 

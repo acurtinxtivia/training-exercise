@@ -16,6 +16,8 @@ export interface TypeHeroImageFields {
     actionAlignment: "Horizontal" | "Vertical";
     contentMaxWidth?: EntryFields.Integer;
     maxWidth: EntryFields.Integer;
+    headlineMaxWidth?: EntryFields.Integer;
+    headlineRich: EntryFields.RichText;
 }
 
 export type TypeHeroImage = Entry<TypeHeroImageFields>;

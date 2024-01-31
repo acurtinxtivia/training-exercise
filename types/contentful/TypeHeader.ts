@@ -1,4 +1,5 @@
 import type { Entry, EntryFields } from "contentful";
+import type { TypeContactInfoFields } from "./TypeContactInfo";
 import type { TypeImageWithFocalPointFields } from "./TypeImageWithFocalPoint";
 import type { TypeLinkFields } from "./TypeLink";
 import type { TypeNavigationMenuFields } from "./TypeNavigationMenu";
@@ -9,6 +10,7 @@ export interface TypeHeaderFields {
     logoSuffix?: EntryFields.Symbol;
     tagline?: EntryFields.Symbol;
     taglineSubtext?: EntryFields.Symbol;
+    contactInfo?: Entry<TypeContactInfoFields>;
     navigationMenu?: Entry<TypeNavigationMenuFields>;
     actions?: Entry<TypeLinkFields>[];
     maxWidth: EntryFields.Integer;

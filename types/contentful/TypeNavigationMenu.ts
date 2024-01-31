@@ -3,6 +3,7 @@ import type { TypeNavigationItemFields } from "./TypeNavigationItem";
 
 export interface TypeNavigationMenuFields {
     internalName?: EntryFields.Symbol;
+    title?: EntryFields.Symbol;
     navigationItems?: Entry<TypeNavigationItemFields>[];
 }
 
