@@ -81,7 +81,7 @@ const Footer = ({ fields }: { fields: TypeFooterFields }) => {
                             <div className='flex flex-col items-center md:items-start gap-2'>
                                 <p className='font-light'>Get latest updates and offers</p>
                                 <div className='h-[47px] flex items-center'>
-                                    <input type="email" placeholder='E-Mail' className='h-full w-[230px] rounded-l-md px-[17px]' />
+                                    <input type="email" placeholder='E-Mail' className='h-full w-full max-w-[230px] rounded-l-md px-[17px]' />
                                     <button className='btn-primary h-full px-[15px] rounded-r-md'>Send</button>
                                 </div>
                             </div>
@@ -89,6 +89,13 @@ const Footer = ({ fields }: { fields: TypeFooterFields }) => {
                     )}
                 </div>
             </div>
+            {fields.bottomText && (
+                <div className='w-full flex justify-center bg-dark-blue text-white py-[14px] font-light leading-[18px]'>
+                    <div>
+                        {documentToReactComponents(fields.bottomText)}
+                    </div>
+                </div>
+            )}
         </footer>
     )
 }
