@@ -37,7 +37,7 @@ const Posts = ({ blogPosts, postsPerPage }: { blogPosts: any, postsPerPage: numb
 
     return (
         <div className="w-full flex flex-col items-center">
-            <div className="w-full flex flex-col lg:flex-row">
+            <div className="w-full flex flex-col lg:flex-row lg:gap-8">
                 {(!blogPosts || blogPosts.length === 0) ? (
                     <div className="w-full lg:w-2/3 flex justify-center text-[22px] font-bold">
                         No blog posts

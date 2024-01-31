@@ -8,9 +8,9 @@ const BlogPostPreview = ({ fields, createdAt }: { fields: any, createdAt: string
     return (
         <div>
             {fields ? (
-                <div className="flex flex-col sm:px-4">
+                <div className="flex flex-col">
                     <BlogPostHeader fields={fields} createdAt={createdAt} />
-                    <div className="w-full max-h-[156px] overflow-hidden mt-[18px] text-light-gray font-light leading-[26px]">
+                    <div className="w-full max-h-[104px] xl:max-h-[78px] overflow-hidden mt-[18px] text-light-gray font-light leading-[26px]">
                         {documentToReactComponents(fields.postContent)}
                     </div>
                     <Link href={`/blog/${fields.slug}`} className="mt-[29px]">

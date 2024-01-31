@@ -56,7 +56,7 @@ const Banner = ({ fields }: { fields: TypeBannerFields }) => {
                         {fields.headline}
                     </Heading>
                     {fields.subText && (
-                        <div className='flex flex-col lg:flex-row items-center gap-5 lg:gap-4 mt-[10px]'>
+                        <div className='flex flex-col lg:flex-row items-center gap-5 lg:gap-4 mt-[10px] lg:mt-0'>
                             <hr className='border-t w-12 lg:border-t-0 lg:w-auto lg:border-r lg:h-[46px] mt-[10px] lg:mt-0' />
                             <div className='font-light text-[16px] leading-[26px] md:text-[18px] md:leading-[29px] xl:text-[22px]'>
                                 {documentToReactComponents(fields.subText)}

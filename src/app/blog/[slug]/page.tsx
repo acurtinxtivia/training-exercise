@@ -36,7 +36,7 @@ export default async function BlogPage({ params }: { params: { slug: string }}) 
                     </div>
                     </div>
                     {relatedPosts && relatedPosts.length > 0 && (
-                        <div className="w-full lg:w-1/3 flex flex-col mt-[35px] lg:mt-0">
+                        <div className="w-full lg:w-1/3 flex flex-col mt-[35px] lg:mt-0 lg:px-4">
                             <h3 className="font-bold text-[22px] leading-[26px] md:text-[26px] md:leading-[31px] lg:text-[30px] lg:leading-[38px]">Related Posts</h3>
                             <div className="mt-[30px] flex flex-col md:flex-row flex-wrap gap-[23px]">
                                 {relatedPosts.map((relatedPost) => (
