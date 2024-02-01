@@ -1,5 +1,13 @@
+import { Metadata } from "contentful";
+
+interface ContentTypeSys {
+    type: string;
+    linkType: string;
+    id: string;
+}
+
 interface ContentType {
-    sys: Sys;
+    sys: ContentTypeSys;
 }
 
 export interface Sys {
@@ -12,5 +20,5 @@ export interface Sys {
 export interface Entry<T> {
     sys: Sys;
     fields: T;
-    metadata: any;
+    metadata: Metadata;
 }

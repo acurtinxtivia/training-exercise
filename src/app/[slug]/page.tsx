@@ -1,4 +1,5 @@
 import { fetchLandingEntriesBySlug, fetchAllPages } from "~/api"
+import NotFound from "~/components/NotFound"
 import PageRenderer from "~/components/PageRenderer"
 
 export async function generateStaticParams() {
@@ -10,17 +11,11 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-    const [data] = await fetchLandingEntriesBySlug(params.slug)
+    const result = await fetchLandingEntriesBySlug(params.slug)
 
-    if (!data) {
-        return (
-            <main className='w-full flex flex-col items-center'>
-                {params.slug} page not found
-            </main>
-        )
-    }
+    if (!result || result.length < 1) return <NotFound />
 
     return (
-        <PageRenderer data={data} />
+        <PageRenderer data={result[0]} />
     )
 }

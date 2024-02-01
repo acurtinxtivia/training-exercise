@@ -1,10 +1,10 @@
-import { fetchAllTopics, fetchBlogPosts } from "~/api"
+import { fetchAllTopics, fetchAllBlogPosts } from "~/api"
 import Heading from "../Heading"
 import Posts from "./Posts"
 import type { TypeBlogListFields } from "../../../types/contentful-types"
 
 const BlogList = async ({ fields }: { fields: TypeBlogListFields }) => {
-    const blogPosts = await fetchBlogPosts()
+    const blogPosts = await fetchAllBlogPosts()
     const topics = await fetchAllTopics()
     
     return (
@@ -13,7 +13,9 @@ const BlogList = async ({ fields }: { fields: TypeBlogListFields }) => {
                 {fields.title && (
                     <Heading size='h1'>{fields.title}</Heading>
                 )}
-                <Posts blogPosts={blogPosts} postsPerPage={fields.numberOfPosts} topics={topics} />
+                {blogPosts && (
+                    <Posts blogPosts={blogPosts} postsPerPage={fields.numberOfPosts} topics={topics || []} />
+                )}
             </div>
         </section>
     )

@@ -1,17 +1,18 @@
 import Link from "next/link"
 
-import { fetchBlogPostBySlug, fetchBlogPosts, fetchBlogPostsByTopic } from "~/api"
+import { fetchBlogPostBySlug, fetchAllBlogPosts, fetchBlogPostsByTopic } from "~/api"
 import Footer from "~/components/Footer"
 import PageHeader from "~/components/PageHeader"
 import BlogPostHeader from "~/components/BlogPostHeader"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import ImageWithFocalPoint from "~/components/ImageWithFocalPoint"
 import ArrowLeftIcon from "~/components/icons/ArrowLeftIcon"
 import Banner from "~/components/Banner"
+import RichText from "~/components/RichText"
 import type { TypeBlogPost } from "../../../../types/contentful-types"
+import NotFound from "~/components/NotFound"
 
 export async function generateStaticParams() {
-    const allBlogPosts = await fetchBlogPosts()
+    const allBlogPosts = await fetchAllBlogPosts()
 
     return allBlogPosts?.map(blogPost => ({
         slug: blogPost.fields.slug
@@ -19,8 +20,12 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPage({ params }: { params: { slug: string }}) {
-    const [post] = await fetchBlogPostBySlug(params.slug)
-    const relatedPosts = await fetchBlogPostsByTopic(post.fields.topic, post.sys.id)
+    const result = await fetchBlogPostBySlug(params.slug)
+
+    if (!result || result.length < 1) return <NotFound />
+
+    const post: TypeBlogPost = result[0]
+    const relatedPosts: TypeBlogPost[] | undefined = await fetchBlogPostsByTopic(post.fields.blogTopic.sys.id, post.sys.id)
 
     return (
         <main className="w-full min-h-screen flex flex-col items-center">
@@ -33,7 +38,7 @@ export default async function BlogPage({ params }: { params: { slug: string }}) 
                         <div className="mt-[19px] font-light leading-[26px]">
                     </div>
                     <div className="text-light-gray leading-[26px] font-light">
-                        {documentToReactComponents(post.fields.postContent)}
+                        <RichText content={post.fields.postContent} />
                     </div>
                     </div>
                     {relatedPosts && relatedPosts.length > 0 && (

@@ -1,4 +1,4 @@
-import type { TypePageLanding } from "../../types/contentful-types"
+import type { TypeBannerFields, TypeBlogListFields, TypeCarouselFields, TypeFooterFields, TypeHeaderFields, TypeHeroImageFields, TypeImageAndTextFields, TypePageLanding, TypeSetOfCardFields, TypeSetOfTestimonialsFields } from "../../types/contentful-types"
 import PageHeader from "./PageHeader"
 import Hero from "./Hero"
 import Banner from "./Banner"
@@ -6,7 +6,6 @@ import SetOfCards from "./SetOfCards"
 import SetOfTestimonials from "./SetOfTestimonials"
 import ImageAndText from "./ImageAndText"
 import BlogList from "./BlogList/BlogList"
-import BlogPost from './BlogPost'
 import Footer from "./Footer"
 import Carousel from "./Carousel"
 
@@ -16,25 +15,32 @@ const PageRenderer = ({ data }: { data: TypePageLanding }) => {
             {data.fields.sections.map((section) => {
                 switch(section.sys.contentType.sys.id) {
                     case 'header':
-                        return <PageHeader fields={section.fields} key={section.sys.id} />
+                        const headerFields = section.fields as TypeHeaderFields
+                        return <PageHeader fields={headerFields} key={section.sys.id} />
                     case 'heroImage':
-                        return <Hero fields={section.fields} key={section.sys.id} />
+                        const heroFields = section.fields as TypeHeroImageFields
+                        return <Hero fields={heroFields} key={section.sys.id} />
                     case 'banner':
-                        return <Banner fields={section.fields} key={section.sys.id} />
+                        const bannerFields = section.fields as TypeBannerFields
+                        return <Banner fields={bannerFields} key={section.sys.id} />
                     case 'setOfCard':
-                        return <SetOfCards fields={section.fields} key={section.sys.id} />
+                        const setOfCardsFields = section.fields as TypeSetOfCardFields
+                        return <SetOfCards fields={setOfCardsFields} key={section.sys.id} />
                     case 'setOfTestimonials':
-                        return <SetOfTestimonials fields={section.fields} key={section.sys.id} />
+                        const setOfTestimonialsFields = section.fields as TypeSetOfTestimonialsFields
+                        return <SetOfTestimonials fields={setOfTestimonialsFields} key={section.sys.id} />
                     case 'imageAndText':
-                        return <ImageAndText fields={section.fields} key={section.sys.id} />
+                        const imageAndTextFields = section.fields as TypeImageAndTextFields
+                        return <ImageAndText fields={imageAndTextFields} key={section.sys.id} />
                     case 'carousel':
-                        return <Carousel fields={section.fields} key={section.sys.id} />
+                        const carouselFields = section.fields as TypeCarouselFields
+                        return <Carousel fields={carouselFields} key={section.sys.id} />
                     case 'blogList':
-                        return <BlogList fields={section.fields} key={section.sys.id} />
-                    case 'blogPost':
-                        return <BlogPost fields={section.fields} key={section.sys.id} />
+                        const blogListFields = section.fields as TypeBlogListFields
+                        return <BlogList fields={blogListFields} key={section.sys.id} />
                     case 'footer':
-                        return <Footer fields={section.fields} key={section.sys.id} />
+                        const footerFields = section.fields as TypeFooterFields
+                        return <Footer fields={footerFields} key={section.sys.id} />
                     default:
                         return null
                 }

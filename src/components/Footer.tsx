@@ -20,7 +20,7 @@ const Footer = ({ fields }: { fields: TypeFooterFields }) => {
                     <div className='w-[480px] md:w-[375px] lg:w-[485px] xl:w-[300px] px-4 flex flex-col items-center text-center md:items-start md:text-left'>
                         <ImageWithFocalPoint fields={fields.logo.fields} />
                         <div className='mt-[18px] font-light leading-[24px]'>
-                            {documentToReactComponents(fields.content)}
+                            {fields.content && documentToReactComponents(fields.content)}
                         </div>
                         <div className='w-full mt-[22px] flex items-center justify-center md:justify-start gap-[30px]'>
                             <em className='font-light'>
@@ -38,7 +38,7 @@ const Footer = ({ fields }: { fields: TypeFooterFields }) => {
                             <h4 className='text-[18px] font-black'>{fields.navigation.fields.title}</h4>
                             <hr className='w-full sm:w-[315px] md:w-[275px] lg:w-[385px] xl:w-[200px] border-b-1 border-blue-gray/40' />
                             <div className='text-blue-gray font-light grid grid-cols-2 mx-auto gap-x-[70px] md:gap-x-0 gap-y-[6px] md:gap-y-[12px] md:w-full'>
-                                {fields.navigation.fields.navigationItems.map((item) => (
+                                {fields.navigation.fields.navigationItems && fields.navigation.fields.navigationItems.map((item) => (
                                         <Link key={item.sys.id} href={`/${item.fields.slug}`} className='hover:text-primary transition-colors'>
                                             {item.fields.label}
                                         </Link>
