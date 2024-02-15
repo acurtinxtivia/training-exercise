@@ -7,15 +7,17 @@ import {
 
 const clientId = process.env.KAMELEOON_CLIENT_ID || "";
 const clientSecret = process.env.KAMELEOON_CLIENT_SECRET || "";
+const siteCode = process.env.KAMELEOON_SITE_CODE_VERCEL || "";
 
 const configuration: Partial<SDKConfigurationType> = {
   updateInterval: 2,
   environment: Environment.Production,
-  domain: "http://localhost:3000",
+  domain:
+    "https://vercel.com/alex-curtins-projects/training-exercise-dgl3/deployments",
 };
 
 let kameleoonClient = new KameleoonClient({
-  siteCode: "u2g7ks0i9p",
+  siteCode,
   credentials: { clientId, clientSecret },
   configuration,
 });
