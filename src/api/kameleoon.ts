@@ -13,7 +13,7 @@ const configuration: Partial<SDKConfigurationType> = {
   updateInterval: 2,
   environment: Environment.Production,
   domain:
-    "https://vercel.com/alex-curtins-projects/training-exercise-dgl3/deployments",
+    "https://training-exercise-dgl3-vp1fr9640-alex-curtins-projects.vercel.app/",
 };
 
 let kameleoonClient = new KameleoonClient({
