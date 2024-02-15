@@ -12,8 +12,7 @@ const siteCode = process.env.KAMELEOON_SITE_CODE_VERCEL || "";
 const configuration: Partial<SDKConfigurationType> = {
   updateInterval: 2,
   environment: Environment.Production,
-  domain:
-    "https://training-exercise-dgl3-vp1fr9640-alex-curtins-projects.vercel.app/",
+  domain: "http://localhost:3000",
 };
 
 let kameleoonClient = new KameleoonClient({
