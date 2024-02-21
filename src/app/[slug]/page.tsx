@@ -1,21 +1,21 @@
-import { fetchLandingEntriesBySlug, fetchAllPages } from "~/api"
-import NotFound from "~/components/NotFound"
-import PageRenderer from "~/components/PageRenderer"
+import { fetchLandingEntriesBySlug, fetchAllPages } from "~/api";
+import NotFound from "~/components/NotFound";
+import PageRenderer from "~/components/PageRenderer";
 
 export async function generateStaticParams() {
-    const allPages = await fetchAllPages()
+  const allPages = await fetchAllPages();
 
-    return allPages?.map((page) => ({
-        slug: page.fields.slug
-    }))
+  return allPages
+    ?.filter((page) => page.fields.slug !== "blog")
+    .map((page) => ({
+      slug: page.fields.slug,
+    }));
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-    const result = await fetchLandingEntriesBySlug(params.slug)
+  const result = await fetchLandingEntriesBySlug(params.slug);
 
-    if (!result || result.length < 1) return <NotFound />
+  if (!result || result.length < 1) return <NotFound />;
 
-    return (
-        <PageRenderer data={result[0]} />
-    )
+  return <PageRenderer data={result[0]} />;
 }
