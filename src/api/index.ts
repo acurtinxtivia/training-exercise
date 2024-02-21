@@ -1,3 +1,4 @@
+"use server";
 import * as contentful from "contentful";
 import type { ContentfulClientApi, EntrySkeletonType } from "contentful";
 import {
@@ -6,6 +7,7 @@ import {
   TypePageLandingFields,
 } from "../../types/contentful-types";
 import { kameleoonLandingParser } from "./kameleoonParser";
+import { cookies } from "next/headers";
 
 const space = process.env.CONTENTFUL_SPACE_ID;
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
@@ -61,7 +63,9 @@ async function fetchLandingPages(options: FetchLandingPagesOptions = {}) {
       ...options,
     });
 
-    if (entries.items) return entries.items;
+    // console.log(cookies().getAll());
+
+    if (entries.items) return await kameleoonLandingParser(entries.items);
     console.log(`Error getting entries`);
   }
   console.log("Access Token is undefined");

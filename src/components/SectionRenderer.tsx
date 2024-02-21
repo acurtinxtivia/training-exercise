@@ -57,8 +57,8 @@ const SectionRenderer = ({ section }: SectionRendererProps) => {
     case "blogList":
       const blogListFields = section.fields as TypeBlogListFields;
       return <BlogList fields={blogListFields} key={section.sys.id} />;
-    case "kameleoonVariationContainer":
-      return <Kameleoon section={section} key={section.sys.id} />;
+    // case "kameleoonVariationContainer":
+    //   return <Kameleoon section={section} key={section.sys.id} />;
     case "footer":
       const footerFields = section.fields as TypeFooterFields;
       return <Footer fields={footerFields} key={section.sys.id} />;

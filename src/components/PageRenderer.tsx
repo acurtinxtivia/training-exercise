@@ -25,7 +25,7 @@ const PageRenderer = ({ data }: { data: TypePageLanding }) => {
   return (
     <main className="w-full flex flex-col items-center min-h-screen">
       {data.fields.sections.map((section) => {
-        switch (section.sys.contentType.sys.id) {
+        switch (section?.sys.contentType.sys.id || "none") {
           case "header":
             const headerFields = section.fields as TypeHeaderFields;
             return <PageHeader fields={headerFields} key={section.sys.id} />;
@@ -60,8 +60,8 @@ const PageRenderer = ({ data }: { data: TypePageLanding }) => {
           case "blogList":
             const blogListFields = section.fields as TypeBlogListFields;
             return <BlogList fields={blogListFields} key={section.sys.id} />;
-          case "kameleoonVariationContainer":
-            return <Kameleoon section={section} key={section.sys.id} />;
+          // case "kameleoonVariationContainer":
+          //   return <Kameleoon section={section} key={section.sys.id} />;
           case "footer":
             const footerFields = section.fields as TypeFooterFields;
             return <Footer fields={footerFields} key={section.sys.id} />;

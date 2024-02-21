@@ -1,18 +1,29 @@
-import NextLink from "next/link"
+"use client";
+import NextLink from "next/link";
 
-import { TypeLinkFields } from "../../types/contentful-types"
-import Button from "./Button"
+import { TypeLinkFields } from "../../types/contentful-types";
+import Button from "./Button";
 
 const Link = ({ fields }: { fields: TypeLinkFields }) => {
-    const link = (
-        <NextLink href={`/${fields.href}`} target={fields.target}>
-            {fields.label}
-        </NextLink>
-    )
+  const onClick = async () => {
+    await fetch("/api/kameleoon/conversion/331130", {
+      method: "POST",
+    });
+  };
 
-    return fields.displayStyle === "Button" ? (
-        <Button theme={fields.theme}>{link}</Button>
-    ) : link;
-}
+  const link = (
+    <NextLink href={`/${fields.href}`} target={fields.target}>
+      {fields.label}
+    </NextLink>
+  );
 
-export default Link
+  return fields.displayStyle === "Button" ? (
+    <Button theme={fields.theme} onClick={onClick}>
+      {link}
+    </Button>
+  ) : (
+    link
+  );
+};
+
+export default Link;
