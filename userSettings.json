@@ -1,0 +1,10 @@
+{
+  "preferences": {
+    "blog": {
+      "topics": [
+        { "label": "Integration", "id": "4cTk3HKOjIpTsLGo5E3H1M" },
+        { "label": "UX Design", "id": "57ixvHz8wxpMd3r5xVm002" }
+      ]
+    }
+  }
+}
