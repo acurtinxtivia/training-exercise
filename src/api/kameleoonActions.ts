@@ -7,40 +7,39 @@ import kameleoonClient from "./kameleoon";
 
 export async function getKameleoonVisitorCode() {
   await kameleoonClient.initialize();
-  //   const req = new IncomingMessage(new Socket());
-  //   const cookieHeader = headers().get("cookie");
-  //   if (cookieHeader) {
-  //     req.headers.cookie = cookieHeader;
-  //   }
 
-  //   const res = new ServerResponse(req);
-  //   const visitorCode = kameleoonClient.getVisitorCode({
-  //     cookies: cookie,
-  //   });
   const visitorCode = kameleoonClient.getVisitorCode({
     cookies: cookies,
   });
-  //   cookies().set("kameleoonVisitorCode", visitorCode);
 
   return visitorCode;
 }
 
-export async function getKameleoonVariation(container: any) {
-  await kameleoonClient.initialize();
-  //   const visitorCode = await getKameleoonVisitorCode();
-  //   const visitorCode = cookies().get("kameleoonVisitorCode")?.value || "";
-  const visitorCode = "asdasdad";
+export async function getKameleoonVariation(
+  container: any,
+  visitorCode: string
+) {
+  try {
+    await kameleoonClient.initialize();
 
-  const featureKey = container?.fields.featureKey || "";
-  const variationKey = kameleoonClient.getFeatureFlagVariationKey(
-    visitorCode,
-    featureKey
-  );
+    const featureKey = container?.fields.featureKey || "";
+    const variationKey = kameleoonClient.getFeatureFlagVariationKey(
+      visitorCode,
+      featureKey
+    );
 
-  const variationEntryId = container.fields?.meta[variationKey];
-  const variation = container.fields.variations.find(
-    (v: any) => v.sys.id === variationEntryId
-  );
+    const variationEntryId = container.fields?.meta[variationKey];
+    const variation = container.fields.variations.find(
+      (v: any) => v.sys.id === variationEntryId
+    );
 
-  return variation;
+    if (variation) {
+      return variation;
+    }
+
+    return container;
+  } catch (error) {
+    console.error(error);
+    return container;
+  }
 }

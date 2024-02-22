@@ -63,9 +63,7 @@ async function fetchLandingPages(options: FetchLandingPagesOptions = {}) {
       ...options,
     });
 
-    // console.log(cookies().getAll());
-
-    if (entries.items) return await kameleoonLandingParser(entries.items);
+    if (entries.items) return entries.items;
     console.log(`Error getting entries`);
   }
   console.log("Access Token is undefined");

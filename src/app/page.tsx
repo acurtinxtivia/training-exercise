@@ -1,26 +1,19 @@
-import { cookies, headers } from "next/headers";
-
 import { fetchLandingEntriesBySlug } from "~/api";
-import { getKameleoonVisitorCode } from "~/api/kameleoonActions";
 
 import PageRenderer from "~/components/PageRenderer";
 import NotFound from "~/components/NotFound";
+import { kameleoonLandingParser } from "~/api/kameleoonParser";
 
 export default async function Home() {
   const data = await fetchLandingEntriesBySlug();
-  // console.log(headers().get("cookie"));
-  // const visitorCode = await getKameleoonVisitorCode();
-  const res = fetch("http://localhost:3000", {
-    method: "POST",
-    body: JSON.stringify(data[0]),
-  });
-  // async function getVisitorCode() {
-  //   "use server";
-  //   const code = await getKameleoonVisitorCode();
-  //   cookies().set("kameleoonVisitorCode", code);
-  // }
-  // await getVisitorCode();
-  if (!data) return <NotFound />;
 
-  return <PageRenderer data={data[0]} />;
+  if (!data || data.length < 1) return <NotFound />;
+
+  const page = data[0];
+  const res = await fetch("http://localhost:3000/api/kameleoon/visitorCode");
+  const visitorCode = await res.json();
+
+  const parsedPage = await kameleoonLandingParser(page, visitorCode);
+
+  return <PageRenderer data={parsedPage} />;
 }

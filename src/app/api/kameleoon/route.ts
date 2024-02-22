@@ -6,9 +6,7 @@ import { BrowserType, Browser } from "@kameleoon/nodejs-sdk";
 
 import kameleoonClient from "~/api/kameleoon";
 
-export async function POST(req: NextApiRequest) {
-  const res = new ServerResponse(req);
-
+export async function POST(req: NextRequest) {
   try {
     const container = await req.json();
     await kameleoonClient.initialize();
@@ -51,7 +49,13 @@ export async function POST(req: NextApiRequest) {
   }
 }
 
-export async function GET(req: NextApiRequest) {
-  console.log("getting");
-  return NextResponse.json(req.headers);
+export async function GET(req: NextRequest) {
+  await kameleoonClient.initialize();
+  const visitorCode = kameleoonClient.getVisitorCode({
+    cookies,
+  });
+  console.log(cookies().toString());
+  const response = NextResponse.json(visitorCode);
+  response.cookies.set("kameleoonVisitorCode", visitorCode);
+  return response;
 }

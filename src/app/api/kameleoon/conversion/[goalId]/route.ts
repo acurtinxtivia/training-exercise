@@ -12,7 +12,6 @@ type Context = {
 };
 
 export async function POST(req: NextApiRequest, context: Context) {
-  console.log(req);
   const res = new ServerResponse(req);
   try {
     const goalId = parseInt(context.params.goalId);
